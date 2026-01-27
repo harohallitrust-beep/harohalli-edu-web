@@ -2,9 +2,12 @@
 
 @theme {
   --color-primary: #1e3a8a;
+  --color-primary-dark: #172554;
   --color-primary-light: #3b82f6;
   --color-accent: #2563eb;
   --color-slate-background: #f8fafc;
+  --color-trust-blue: #1e3a8a;
+  --color-trust-blue-light: #60a5fa;
 
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
 }
@@ -12,6 +15,7 @@
 :root {
   --background: #ffffff;
   --foreground: #0f172a;
+  --trust-blue: #1e3a8a;
 }
 
 @media (prefers-color-scheme: dark) {

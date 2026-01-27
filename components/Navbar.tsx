@@ -33,26 +33,26 @@ const Navbar = () => {
     <nav
       className={cn(
         "fixed w-full z-50 transition-all duration-500",
-        scrolled ? "bg-white shadow-lg py-2" : "bg-transparent py-4 text-white"
+        scrolled ? "bg-primary shadow-2xl py-2" : "bg-linear-to-b from-primary-dark/80 via-primary-dark/40 to-transparent py-4 text-white"
       )}
     >
       {/* Top Bar */}
-      <div className={cn("hidden md:block border-b border-white/10 py-1 transition-all", scrolled ? "hidden" : "block")}>
-        <div className="container mx-auto px-6 lg:px-12 flex justify-between items-center text-sm font-medium">
+      <div className={cn("hidden md:block transition-all", scrolled ? "py-1" : "border-b border-white/10 py-1")}>
+        <div className="container mx-auto px-6 lg:px-12 flex justify-between items-center text-sm font-bold text-white">
           <div className="flex items-center space-x-6">
             <span className="flex items-center space-x-2">
-              <Phone size={14} />
+              <Phone size={14} className="text-blue-300" />
               <span>+91 12345 67890</span>
             </span>
             <span className="flex items-center space-x-2">
-              <Mail size={14} />
+              <Mail size={14} className="text-blue-300" />
               <span>info@harohalli-trust.org</span>
             </span>
           </div>
           <div className="flex items-center space-x-4">
-            <Link href="#" className="hover:text-blue-200 transition-colors"><Facebook size={16} /></Link>
-            <Link href="#" className="hover:text-blue-200 transition-colors"><Instagram size={16} /></Link>
-            <Link href="#" className="hover:text-blue-200 transition-colors"><Linkedin size={16} /></Link>
+            <Link href="#" className="hover:text-blue-300 transition-colors"><Facebook size={16} /></Link>
+            <Link href="#" className="hover:text-blue-300 transition-colors"><Instagram size={16} /></Link>
+            <Link href="#" className="hover:text-blue-300 transition-colors"><Linkedin size={16} /></Link>
           </div>
         </div>
       </div>
@@ -62,7 +62,7 @@ const Navbar = () => {
           href="#home"
           className={cn(
             "text-2xl font-black tracking-tight transition-colors",
-            scrolled ? "text-primary" : "text-white"
+            scrolled ? "text-white" : "text-white"
           )}
         >
           HAROHALLI TRUST
@@ -75,8 +75,8 @@ const Navbar = () => {
               key={link.name}
               href={link.href}
               className={cn(
-                "text-sm font-bold transition-colors",
-                scrolled ? "text-slate-600 hover:text-primary" : "text-white/90 hover:text-white"
+                "text-sm font-bold tracking-wide transition-colors",
+                scrolled ? "text-white hover:text-blue-300" : "text-white/90 hover:text-white"
               )}
             >
               {link.name}
