@@ -42,7 +42,7 @@ const Activities = () => {
                 alt={activity.title}
                 className="w-full h-96 object-cover group-hover:scale-110 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-linear-to-t from-primary/90 via-primary/20 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent"></div>
               <div className="absolute bottom-0 left-0 p-8 text-white">
                 <div className="p-3 bg-accent rounded-xl w-fit mb-4">
                   <activity.icon size={20} />
