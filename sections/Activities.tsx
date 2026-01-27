@@ -15,9 +15,9 @@ const Activities = () => {
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-6">
           <div className="max-w-xl">
-            <h2 className="text-3xl md:text-5xl font-bold text-primary mb-4">Activities & Events</h2>
-            <div className="w-20 h-1.5 bg-accent rounded-full mb-6"></div>
-            <p className="text-slate-500">
+            <h2 className="text-3xl md:text-5xl font-black text-primary mb-4 uppercase tracking-tight">Activities & Events</h2>
+            <div className="w-24 h-2 bg-accent rounded-full mb-8"></div>
+            <p className="text-slate-700 text-xl font-medium leading-relaxed">
               Life at Harohalli is vibrant and full of learning opportunities. Explore the various activities that help our students discover their passions.
             </p>
           </div>

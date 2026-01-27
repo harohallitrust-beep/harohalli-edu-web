@@ -40,7 +40,7 @@ const About = () => {
   const [activeSchool, setActiveSchool] = useState(schools[0].id);
 
   return (
-    <section id="about" className="section-padding bg-slate-background">
+    <section id="about" className="section-padding bg-white">
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-extrabold text-primary mb-4">About Us</h2>
@@ -83,8 +83,8 @@ const About = () => {
               className="grid lg:grid-cols-2 gap-16 items-center"
             >
               <div className="space-y-8">
-                <h3 className="text-2xl md:text-4xl font-bold text-primary leading-tight">Empowering Minds Since 1995</h3>
-                <p className="text-slate-600 text-lg leading-relaxed">
+                <h3 className="text-2xl md:text-5xl font-black text-primary-dark leading-tight">Empowering Minds Since 1995</h3>
+                <p className="text-slate-700 text-xl leading-relaxed font-medium">
                   Founded with a vision to make quality education accessible to every child, Harohalli Educational Trust has been a beacon of knowledge for over 25 years. We believe in nurturing not just students, but future leaders who are ethically grounded and socially responsible.
                 </p>
                 <div className="grid sm:grid-cols-2 gap-6">
@@ -153,7 +153,7 @@ const About = () => {
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                       {school.staff.map((member, idx) => (
-                        <div key={idx} className="bg-white rounded-[2rem] p-8 shadow-sm border border-slate-100 card-shadow flex items-center space-x-6">
+                        <div key={idx} className="bg-white rounded-4xl p-8 shadow-sm border border-slate-100 card-shadow flex items-center space-x-6">
                           <img
                             src={member.image}
                             alt={member.name}

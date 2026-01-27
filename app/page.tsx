@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/sections/Hero";
+import StatsSection from "@/components/StatsSection";
 import About from "@/sections/About";
 import VisionMission from "@/sections/VisionMission";
 import Facilities from "@/sections/Facilities";
@@ -15,6 +16,7 @@ export default function Home() {
     <main className="min-h-screen relative">
       <Navbar />
       <Hero />
+      <StatsSection />
       <About />
       <VisionMission />
       <Facilities />
