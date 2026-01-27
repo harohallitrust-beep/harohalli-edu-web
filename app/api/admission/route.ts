@@ -35,8 +35,12 @@ export async function POST(req: Request) {
     });
 
     return NextResponse.json({ message: "Success" }, { status: 200 });
-  } catch (error) {
-    console.error("Resend Error:", error);
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      console.error("Resend Error:", error.message, error.stack);
+    } else {
+      console.error("Resend Error:", error);
+    }
     return NextResponse.json({ message: "Internal Server Error" }, { status: 500 });
   }
 }
