@@ -3,6 +3,7 @@
 import { Link } from "@/i18n/routing";
 import { Facebook, Instagram, Twitter, Mail, Phone, MapPin } from "lucide-react";
 import { useTranslations } from "next-intl";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const Footer = () => {
   const t = useTranslations("Footer");
@@ -94,9 +95,12 @@ const Footer = () => {
           <p className="text-white/40 text-sm font-medium">
             © {new Date().getFullYear()} {navT("trust_name")}. {t("all_rights_reserved")}
           </p>
-          <div className="flex space-x-8 text-sm text-white/40 font-medium">
-            <Link href="#" className="hover:text-white transition-colors">{t("privacy_policy")}</Link>
-            <Link href="#" className="hover:text-white transition-colors">{t("terms_of_service")}</Link>
+          <div className="flex flex-col md:flex-row items-center gap-8">
+            <div className="flex space-x-8 text-sm text-white/40 font-medium">
+              <Link href="#" className="hover:text-white transition-colors">{t("privacy_policy")}</Link>
+              <Link href="#" className="hover:text-white transition-colors">{t("terms_of_service")}</Link>
+            </div>
+            <LanguageSwitcher />
           </div>
         </div>
       </div>
