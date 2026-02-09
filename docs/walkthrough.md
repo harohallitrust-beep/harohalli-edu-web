@@ -14,7 +14,7 @@ I have successfully integrated email services and resolved the structural issues
 ### 🎥 Language Switcher Verification
 The following recording shows the new placement of the language switcher in the footer and its functionality.
 
-![Footer Language Switcher](file:///Users/shrivatsabhat/.gemini/antigravity/brain/52e7da26-56dd-4ab3-8d1a-829c53edcf2c/verify_footer_switcher_1770624750213.webp)
+![Footer Language Switcher](/Users/shrivatsabhat/.gemini/antigravity/brain/52e7da26-56dd-4ab3-8d1a-829c53edcf2c/verify_footer_switcher_1770624750213.webp)
 
 ## 🔐 Admin Portal & Auth
 - **Middleware Warning:** Resolved the "middleware deprecated" terminal error by renaming the file to `proxy.ts` (Next.js 16+ convention).
