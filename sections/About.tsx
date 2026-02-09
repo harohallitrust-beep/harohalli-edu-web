@@ -135,7 +135,7 @@ const About = () => {
               <div className="relative">
                 <div className="absolute inset-0 bg-primary/10 rounded-[2.5rem] translate-x-4 translate-y-4 -z-10"></div>
                 <img
-                  src="https://images.unsplash.com/photo-1541339907198-e08759dfc3ef?q=80&w=2070&auto=format&fit=crop"
+                  src="/images/about/trust-campus.jpg"
                   alt="Trust Campus"
                   className="rounded-[2.5rem] shadow-2xl w-full object-cover h-[500px]"
                 />

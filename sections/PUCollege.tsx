@@ -109,7 +109,7 @@ const PUCollege = () => {
           <div className="relative">
             <div className="absolute inset-0 bg-primary/10 rounded-[3rem] translate-x-6 translate-y-6 -z-10"></div>
             <img
-              src="https://images.unsplash.com/photo-152305085306e-8a4342c44f8b?q=80&w=2070&auto=format&fit=crop"
+              src="/images/pu-college/building.jpg"
               alt="PU College Building"
               className="rounded-[3rem] shadow-2xl w-full object-cover h-[500px]"
             />

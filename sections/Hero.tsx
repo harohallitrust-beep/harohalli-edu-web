@@ -6,9 +6,9 @@ import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 const imageUrls = [
-  "https://images.unsplash.com/photo-1523050335102-c3251d420f2b?q=80&w=2070&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?q=80&w=2071&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2070&auto=format&fit=crop"
+  "/images/hero/hero-1.jpg",
+  "/images/hero/hero-2.jpg",
+  "/images/hero/hero-3.jpg"
 ];
 
 const Hero = () => {
