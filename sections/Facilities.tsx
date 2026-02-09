@@ -2,25 +2,37 @@
 
 import { motion } from "framer-motion";
 import { BookOpen, Monitor, Coffee, Bus, Music, Trophy } from "lucide-react";
+import { useTranslations } from "next-intl";
 
-const facilities = [
-  { icon: BookOpen, name: "Modern Library", description: "Vast collection of books and digital resources." },
-  { icon: Monitor, name: "Computer Lab", description: "State-of-the-art IT lab with high-speed internet." },
-  { icon: Bus, name: "Safe Transport", description: "Own fleet of buses covering major routes." },
-  { icon: Coffee, name: "Hygiene Canteen", description: "Healthy and nutritious meals for students." },
-  { icon: Music, name: "Art & Music", description: "Dedicated studios for creative arts." },
-  { icon: Trophy, name: "Sports Arena", description: "Facilities for indoor and outdoor sports." },
-];
+const iconMap = {
+  library: BookOpen,
+  comp_lab: Monitor,
+  transport: Bus,
+  canteen: Coffee,
+  art_music: Music,
+  sports: Trophy
+};
 
 const Facilities = () => {
+  const t = useTranslations("Facilities");
+
+  const facilities = [
+    { key: "library", icon: iconMap.library },
+    { key: "comp_lab", icon: iconMap.comp_lab },
+    { key: "transport", icon: iconMap.transport },
+    { key: "canteen", icon: iconMap.canteen },
+    { key: "art_music", icon: iconMap.art_music },
+    { key: "sports", icon: iconMap.sports },
+  ];
+
   return (
     <section id="facilities" className="section-padding">
       <div className="container mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-primary mb-4">Our Facilities</h2>
+          <h2 className="text-3xl md:text-5xl font-bold text-primary mb-4">{t("title")}</h2>
           <div className="w-20 h-1.5 bg-accent mx-auto rounded-full"></div>
           <p className="mt-6 text-slate-500 max-w-2xl mx-auto">
-            We provide a comprehensive range of facilities designed to support the academic and personal growth of our students.
+            {t("subtitle")}
           </p>
         </div>
 
@@ -37,8 +49,12 @@ const Facilities = () => {
               <div className="w-14 h-14 bg-primary/5 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
                 <facility.icon size={28} className="text-primary group-hover:text-white" />
               </div>
-              <h3 className="text-xl font-bold text-primary mb-3">{facility.name}</h3>
-              <p className="text-slate-500 leading-relaxed">{facility.description}</p>
+              <h3 className="text-xl font-bold text-primary mb-3">
+                {t(`items.${facility.key}`)}
+              </h3>
+              <p className="text-slate-500 leading-relaxed">
+                {t(`items.${facility.key}_desc`)}
+              </p>
             </motion.div>
           ))}
         </div>

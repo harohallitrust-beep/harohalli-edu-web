@@ -10,14 +10,32 @@ export default function AdminLogin() {
   const [error, setError] = useState("");
   const router = useRouter();
 
-  const handleLogin = (e: React.FormEvent) => {
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Simple mock authentication
-    if (username === "admin" && password === "harohalli2024") {
-      localStorage.setItem("isAdmin", "true");
-      router.push("/admin/dashboard");
-    } else {
-      setError("Invalid credentials. Use admin / harohalli2024");
+    setIsLoading(true);
+    setError("");
+
+    try {
+      const response = await fetch("/api/admin/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        localStorage.setItem("isAdmin", "true");
+        router.push("/admin/dashboard");
+      } else {
+        setError(data.message || "Invalid credentials");
+      }
+    } catch (err) {
+      setError("An error occurred. Please try again.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -69,8 +87,18 @@ export default function AdminLogin() {
             </div>
           )}
 
-          <button className="w-full py-4 bg-primary hover:bg-slate-800 text-white font-bold rounded-xl shadow-lg transition-all">
-            Login to Dashboard
+          <button
+            disabled={isLoading}
+            className="w-full py-4 bg-primary hover:bg-slate-800 text-white font-bold rounded-xl shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+          >
+            {isLoading ? (
+              <>
+                <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                <span>Logging in...</span>
+              </>
+            ) : (
+              <span>Login to Dashboard</span>
+            )}
           </button>
         </form>
       </div>

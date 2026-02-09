@@ -2,8 +2,10 @@
 
 import { motion } from "framer-motion";
 import { Target, Eye, ShieldCheck } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 const VisionMission = () => {
+  const t = useTranslations("VisionMission");
   return (
     <section id="vision" className="section-padding bg-primary text-white overflow-hidden relative">
       {/* Decorative background circles */}
@@ -19,10 +21,10 @@ const VisionMission = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-5xl font-extrabold mb-8 leading-tight">
-              Our Vision & <br /> <span className="text-blue-300">Mission</span>
+              {t("title")} <br /> <span className="text-blue-300">{t("title_highlight")}</span>
             </h2>
             <p className="text-white/70 text-lg leading-relaxed mb-10">
-              Guided by our motto of &quot;Knowledge is Power,&quot; we are committed to building a brighter future through academic excellence and personal growth.
+              {t("subtitle")}
             </p>
 
             <div className="space-y-6">
@@ -31,9 +33,9 @@ const VisionMission = () => {
                   <Eye className="text-white" size={24} />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2 text-blue-200">Our Vision</h3>
+                  <h3 className="text-xl font-bold mb-2 text-blue-200">{t("vision_title")}</h3>
                   <p className="text-white/60 leading-relaxed">
-                    To be a globally recognized center of education that empowers students to achieve excellence in all facets of life while maintaining strong cultural and ethical values.
+                    {t("vision_desc")}
                   </p>
                 </div>
               </div>
@@ -43,9 +45,9 @@ const VisionMission = () => {
                   <Target className="text-white" size={24} />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2 text-blue-200">Our Mission</h3>
+                  <h3 className="text-xl font-bold mb-2 text-blue-200">{t("mission_title")}</h3>
                   <p className="text-white/60 leading-relaxed">
-                    To provide a nurturing environment where students are encouraged to explore their potential, develop critical thinking, and build the character necessary to serve society.
+                    {t("mission_desc")}
                   </p>
                 </div>
               </div>
@@ -67,13 +69,13 @@ const VisionMission = () => {
               />
               <div className="p-8 bg-blue-800 rounded-2xl">
                 <ShieldCheck size={40} className="text-blue-300 mb-4" />
-                <h4 className="font-bold text-xl text-white">Ethical Values</h4>
+                <h4 className="font-bold text-xl text-white">{t("ethical_values")}</h4>
               </div>
             </div>
             <div className="space-y-4 pt-12">
               <div className="p-8 bg-accent rounded-2xl">
                 <h4 className="text-4xl font-black text-white mb-2">100%</h4>
-                <p className="font-bold text-white/80">Commitment to Growth</p>
+                <p className="font-bold text-white/80">{t("commitment")}</p>
               </div>
               <img
                 src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?q=80&w=2071&auto=format&fit=crop"

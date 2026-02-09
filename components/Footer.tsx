@@ -1,47 +1,57 @@
 "use client";
 
-import Link from "next/link";
-import { Facebook, Instagram, Linkedin, Twitter, ArrowUp, GraduationCap } from "lucide-react";
+import { Link } from "@/i18n/routing";
+import { Facebook, Instagram, Twitter, Mail, Phone, MapPin } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 const Footer = () => {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+  const t = useTranslations("Footer");
+  const navT = useTranslations("Navbar");
+
+  const quickLinks = [
+    { name: navT("home"), href: "#home" },
+    { name: navT("about"), href: "#about" },
+    { name: navT("vision"), href: "#vision" },
+    { name: navT("facilities"), href: "#facilities" },
+    { name: navT("activities"), href: "#activities" },
+  ];
+
+  const resources = [
+    { name: t("admission_req"), href: "#registration" },
+    { name: t("school_calendar"), href: "#" },
+    { name: t("academic_toppers"), href: "#toppers" },
+    { name: t("gallery"), href: "#gallery" },
+  ];
 
   return (
-    <footer className="bg-slate-900 text-white">
-      <div className="container mx-auto px-6 lg:px-12 pt-20 pb-10">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+    <footer className="bg-primary-dark text-white pt-20 pb-10">
+      <div className="container mx-auto px-6 lg:px-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div className="space-y-6">
-            <Link href="/" className="text-2xl font-bold flex items-center space-x-2">
-              <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center">
-                <GraduationCap fill="white" size={24} />
-              </div>
-              <span>HAROHALLI</span>
-            </Link>
-            <p className="text-slate-400 leading-relaxed">
-              Empowering students with knowledge, values, and skills for a lifetime of success. Since 1995.
+            <h3 className="text-2xl font-black tracking-tight">{navT("trust_name")}</h3>
+            <p className="text-white/60 leading-relaxed font-medium">
+              {t("mission_short")}
             </p>
             <div className="flex space-x-4">
-              {[Facebook, Instagram, Linkedin, Twitter].map((Icon, idx) => (
-                <Link
-                  key={idx}
-                  href="#"
-                  className="w-10 h-10 bg-white/5 hover:bg-accent rounded-full flex items-center justify-center transition-all"
-                >
-                  <Icon size={18} />
-                </Link>
-              ))}
+              <Link href="#" className="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center hover:bg-accent transition-colors">
+                <Facebook size={20} />
+              </Link>
+              <Link href="#" className="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center hover:bg-accent transition-colors">
+                <Instagram size={20} />
+              </Link>
+              <Link href="#" className="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center hover:bg-accent transition-colors">
+                <Twitter size={20} />
+              </Link>
             </div>
           </div>
 
           <div>
-            <h4 className="text-lg font-bold mb-6">Quick Links</h4>
-            <ul className="space-y-4 text-slate-400">
-              {["Home", "About Us", "Vision & Mission", "Facilities", "Activities"].map((link) => (
-                <li key={link}>
-                  <Link href={`#${link.toLowerCase().replace(/ /g, "")}`} className="hover:text-white transition-colors">
-                    {link}
+            <h4 className="text-lg font-bold mb-6 text-blue-300">{t("quick_links")}</h4>
+            <ul className="space-y-4">
+              {quickLinks.map((link) => (
+                <li key={link.name}>
+                  <Link href={`/${link.href}`} className="text-white/60 hover:text-white transition-colors font-medium">
+                    {link.name}
                   </Link>
                 </li>
               ))}
@@ -49,40 +59,45 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-lg font-bold mb-6">Resources</h4>
-            <ul className="space-y-4 text-slate-400">
-              {["Registration", "Gallery", "Toppers", "Contact Us"].map((link) => (
-                <li key={link}>
-                  <Link href={`#${link.toLowerCase().replace(/ /g, "")}`} className="hover:text-white transition-colors">
-                    {link}
+            <h4 className="text-lg font-bold mb-6 text-blue-300">{t("resources")}</h4>
+            <ul className="space-y-4">
+              {resources.map((link) => (
+                <li key={link.name}>
+                  <Link href={`/${link.href}`} className="text-white/60 hover:text-white transition-colors font-medium">
+                    {link.name}
                   </Link>
                 </li>
               ))}
-              <li><Link href="/admin/login" className="hover:text-white transition-colors">Admin Login</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-lg font-bold mb-6">Contact Us</h4>
-            <ul className="space-y-4 text-slate-400 text-sm">
-              <li>#42, Harohalli Educational Building,</li>
-              <li>M.G. Road, Bangalore - 560001</li>
-              <li className="pt-2">info@harohalli-trust.org</li>
-              <li>+91 12345 67890</li>
+            <h4 className="text-lg font-bold mb-6 text-blue-300">{t("contact_info")}</h4>
+            <ul className="space-y-4">
+              <li className="flex items-start space-x-4 text-white/60">
+                <MapPin className="text-blue-300 shrink-0" size={20} />
+                <span className="font-medium">Harohalli, Bangalore, Karnataka</span>
+              </li>
+              <li className="flex items-center space-x-4 text-white/60">
+                <Phone className="text-blue-300 shrink-0" size={20} />
+                <span className="font-medium">+91 12345 67890</span>
+              </li>
+              <li className="flex items-center space-x-4 text-white/60">
+                <Mail className="text-blue-300 shrink-0" size={20} />
+                <span className="font-medium">info@harohalli-trust.org</span>
+              </li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-white/5 pt-10 flex flex-col md:flex-row items-center justify-between gap-6">
-          <p className="text-slate-500 text-sm">
-            © 2024 Harohalli Educational Trust. All rights reserved.
+        <div className="border-t border-white/10 pt-10 flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-white/40 text-sm font-medium">
+            © {new Date().getFullYear()} {navT("trust_name")}. {t("all_rights_reserved")}
           </p>
-          <button
-            onClick={scrollToTop}
-            className="p-3 bg-white/5 hover:bg-white/10 rounded-xl transition-all group"
-          >
-            <ArrowUp size={20} className="group-hover:-translate-y-1 transition-transform" />
-          </button>
+          <div className="flex space-x-8 text-sm text-white/40 font-medium">
+            <Link href="#" className="hover:text-white transition-colors">{t("privacy_policy")}</Link>
+            <Link href="#" className="hover:text-white transition-colors">{t("terms_of_service")}</Link>
+          </div>
         </div>
       </div>
     </footer>

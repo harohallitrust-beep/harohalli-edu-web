@@ -5,18 +5,20 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Harohalli Educational Trust | Empowering Future Generations",
-  description: "Official website of Harohalli Educational Trust. Providing quality education through our group of institutions.",
+  title: "Harohalli Educational Trust | Admin Portal",
+  description: "Management portal for Harohalli Educational Trust institutions.",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        {children}
+      </body>
     </html>
   );
 }

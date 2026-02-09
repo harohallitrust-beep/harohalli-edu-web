@@ -1,11 +1,13 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { Menu, X, Phone, Mail, Instagram, Facebook, Linkedin } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useTranslations } from "next-intl";
 
 const Navbar = () => {
+  const t = useTranslations("Navbar");
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -18,15 +20,15 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "About Us", href: "#about" },
-    { name: "Vision & Mission", href: "#vision" },
-    { name: "Facilities", href: "#facilities" },
-    { name: "Activities", href: "#activities" },
-    { name: "Gallery", href: "#gallery" },
-    { name: "Registration", href: "#registration" },
-    { name: "Toppers", href: "#toppers" },
-    { name: "Contact Us", href: "#contact" },
+    { name: t("home"), href: "#home" },
+    { name: t("about"), href: "#about" },
+    { name: t("vision"), href: "#vision" },
+    { name: t("facilities"), href: "#facilities" },
+    { name: t("activities"), href: "#activities" },
+    { name: t("gallery"), href: "#gallery" },
+    { name: t("registration"), href: "#registration" },
+    { name: t("toppers"), href: "#toppers" },
+    { name: t("contact"), href: "#contact" },
   ];
 
   return (
@@ -45,8 +47,10 @@ const Navbar = () => {
               <span>+91 12345 67890</span>
             </span>
             <span className="flex items-center space-x-2">
-              <Mail size={14} className="text-blue-300" />
-              <span>info@harohalli-trust.org</span>
+              <span className="flex items-center space-x-2">
+                <Mail size={14} className="text-blue-300" />
+                <span>info@harohalli-trust.org</span>
+              </span>
             </span>
           </div>
           <div className="flex items-center space-x-4">
@@ -59,13 +63,13 @@ const Navbar = () => {
 
       <div className="container mx-auto px-6 lg:px-12 flex justify-between items-center mt-2">
         <Link
-          href="#home"
+          href="/#home"
           className={cn(
             "text-2xl font-black tracking-tight transition-colors",
             scrolled ? "text-white" : "text-white"
           )}
         >
-          HAROHALLI TRUST
+          {t("trust_name")}
         </Link>
 
         {/* Desktop Menu */}
@@ -73,7 +77,7 @@ const Navbar = () => {
           {navLinks.map((link) => (
             <Link
               key={link.name}
-              href={link.href}
+              href={`/${link.href}`}
               className={cn(
                 "text-sm font-bold tracking-wide transition-colors",
                 scrolled ? "text-white hover:text-blue-300" : "text-white/90 hover:text-white"
@@ -88,7 +92,7 @@ const Navbar = () => {
         <button
           className={cn(
             "lg:hidden transition-colors",
-            scrolled ? "text-primary" : "text-white"
+            scrolled ? "text-white" : "text-white"
           )}
           onClick={() => setIsOpen(!isOpen)}
         >
@@ -107,7 +111,7 @@ const Navbar = () => {
           {navLinks.map((link) => (
             <Link
               key={link.name}
-              href={link.href}
+              href={`/${link.href}`}
               className="text-lg font-medium text-primary"
               onClick={() => setIsOpen(false)}
             >

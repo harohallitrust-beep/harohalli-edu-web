@@ -1,0 +1,240 @@
+{
+  "Navbar": {
+    "home": "Home",
+    "about": "About Us",
+    "vision": "Vision & Mission",
+    "facilities": "Facilities",
+    "activities": "Activities",
+    "gallery": "Gallery",
+    "registration": "Registration",
+    "toppers": "Toppers",
+    "contact": "Contact Us",
+    "trust_name": "HAROHALLI TRUST"
+  },
+  "Hero": {
+    "est": "ESTABLISHED 1995",
+    "cta_admission": "Apply for Admission",
+    "cta_explore": "Explore Our Schools",
+    "slides": [
+      {
+        "title": "Nurturing Excellence,",
+        "highlight": "Empowering Futures.",
+        "description": "At Harohalli Educational Trust, we provide more than just education. We build the foundation for a lifetime of success and character."
+      },
+      {
+        "title": "Academic Rigor,",
+        "highlight": "Global Vision.",
+        "description": "Join our community of learners where academic excellence meets traditional values for a brighter tomorrow."
+      },
+      {
+        "title": "Holistic Development,",
+        "highlight": "Future Leaders.",
+        "description": "Our diverse co-curricular activities ensure every child discovers their unique potential and talents."
+      }
+    ]
+  },
+  "Stats": {
+    "institutions": "Institutions",
+    "alumni": "Alumni",
+    "success_rate": "Success Rate"
+  },
+  "About": {
+    "title": "About Us",
+    "the_trust": "The Trust",
+    "group_of_schools": "Group of Schools",
+    "trust_heading": "Empowering Minds Since 1995",
+    "trust_description": "Founded with a vision to make quality education accessible to every child, Harohalli Educational Trust has been a beacon of knowledge for over 25 years. We believe in nurturing not just students, but future leaders who are ethically grounded and socially responsible.",
+    "trustee_title": "Expert Trustees",
+    "trustee_desc": "Led by dedicated educators and social reformers.",
+    "growth_title": "Holistic Growth",
+    "growth_desc": "Focusing on physical, mental, and spiritual well-being.",
+    "legacy_years": "Years of Legacy",
+    "schools": {
+      "central": "Harohalli Central School",
+      "central_desc": "Affiliated with CBSE, focusing on holistic development and modern pedagogical techniques.",
+      "high": "Harohalli High School",
+      "high_desc": "Established in 1995, following the state curriculum with a strong emphasis on academic discipline.",
+      "kg": "Little Flower Kindergarten",
+      "kg_desc": "A playful environment for our youngest learners to Bloom and Grow."
+    },
+    "roles": {
+      "principal": "Principal",
+      "vice_principal": "Vice Principal",
+      "dept_head": "Dept. Head",
+      "sr_teacher": "Sr. Teacher",
+      "coordinator": "Coordinator"
+    }
+  },
+  "VisionMission": {
+    "title": "Our Vision &",
+    "title_highlight": "Mission",
+    "subtitle": "Guided by our motto of \"Knowledge is Power,\" we are committed to building a brighter future through academic excellence and personal growth.",
+    "vision_title": "Our Vision",
+    "vision_desc": "To be a globally recognized center of education that empowers students to achieve excellence in all facets of life while maintaining strong cultural and ethical values.",
+    "mission_title": "Our Mission",
+    "mission_desc": "To provide a nurturing environment where students are encouraged to explore their potential, develop critical thinking, and build the character necessary to serve society.",
+    "ethical_values": "Ethical Values",
+    "commitment": "Commitment to Growth"
+  },
+  "Facilities": {
+    "title": "Our Facilities",
+    "subtitle": "We provide a comprehensive range of facilities designed to support the academic and personal growth of our students.",
+    "items": {
+      "library": "Modern Library",
+      "library_desc": "Vast collection of books and digital resources.",
+      "comp_lab": "Computer Lab",
+      "comp_lab_desc": "State-of-the-art IT lab with high-speed internet.",
+      "transport": "Safe Transport",
+      "transport_desc": "Own fleet of buses covering major routes.",
+      "canteen": "Hygiene Canteen",
+      "canteen_desc": "Healthy and nutritious meals for students.",
+      "art_music": "Art & Music",
+      "art_music_desc": "Dedicated studios for creative arts.",
+      "sports": "Sports Arena",
+      "sports_desc": "Facilities for indoor and outdoor sports."
+    }
+  },
+  "Activities": {
+    "title": "Activities & Events",
+    "subtitle": "Life at Harohalli is vibrant and full of learning opportunities. Explore the various activities that help our students discover their passions.",
+    "view_all": "View All Gallery",
+    "items": {
+      "science": "Science Expo",
+      "science_desc": "Annual exhibition showcasing student innovations.",
+      "cultural": "Cultural Fest",
+      "cultural_desc": "Celebrating diversity through dance and music.",
+      "tours": "Study Tours",
+      "tours_desc": "Learning beyond walls with educational trips."
+    }
+  },
+  "Gallery": {
+    "title": "Our Gallery",
+    "filter_all": "All",
+    "pu_college": "Mahathma PU College",
+    "watch_video": "Watch Video",
+    "youtube_subscribe": "Subscribe to our YouTube Channel",
+    "youtube_desc": "Catch all the latest school events and performances live!",
+    "visit_youtube": "Visit YouTube"
+  },
+  "Registration": {
+    "admission_open": "Admissions 2024-25",
+    "title": "Begin Your",
+    "title_highlight": "Journey With Us",
+    "subtitle": "Secure a seat at one of our premier institutions. Our admission process is transparent, simple, and student-focused.",
+    "steps": {
+      "form": "Register",
+      "form_desc": "Fill out our simplified online application form.",
+      "interaction": "Interaction",
+      "interaction_desc": "Join us for a campus visit and student-parent interaction.",
+      "final": "Finalize",
+      "final_desc": "Complete documentation and secure your future."
+    },
+    "success_title": "Registration Successful!",
+    "success_desc": "Thank you for your interest. Our admissions team will contact you within 24-48 hours with the next steps.",
+    "back_to_form": "Go back to form",
+    "form": {
+      "student_name": "Student Name",
+      "student_name_placeholder": "Jane Doe",
+      "applying_for": "Applying For",
+      "parent_name": "Parent/Guardian Name",
+      "parent_name_placeholder": "John Doe",
+      "phone": "Phone Number",
+      "email": "Email Address",
+      "message": "Message (Optional)",
+      "message_placeholder": "Tell us about yourself...",
+      "submit": "Submit Inquiry"
+    }
+  },
+  "Toppers": {
+    "title": "Our Academic Toppers",
+    "marks": "Marks",
+    "class": "Class",
+    "school": "School"
+  },
+  "Contact": {
+    "title": "Contact Us",
+    "subtitle": "Have questions about our schools or the admission process? Our team is here to help you. Reach out to us through any of the channels below.",
+    "phone": "Phone",
+    "email": "Email",
+    "address_label": "Address",
+    "address": "Harohalli Educational Trust Complex,\nMain Road, Harohalli,\nKarnataka 562112",
+    "office_hours": "Office Hours",
+    "office_hours_desc": "Mon - Sat: 9:00 AM - 4:00 PM",
+    "form": {
+      "title": "Submit a Query",
+      "name": "Full Name",
+      "email": "Email Address",
+      "subject": "Subject",
+      "message": "Your Message",
+      "submit": "Send Message",
+      "success": "Message sent successfully!",
+      "error": "Failed to send message. Please try again."
+    }
+  },
+  "Footer": {
+    "mission_short": "Empowering future generations through quality education and holistic development since 1995.",
+    "quick_links": "Quick Links",
+    "resources": "Resources",
+    "admission_req": "Admission Forms",
+    "school_calendar": "School Calendar",
+    "academic_toppers": "Academic Toppers",
+    "gallery": "Gallery",
+    "contact_info": "Contact Info",
+    "all_rights_reserved": "All rights reserved.",
+    "privacy_policy": "Privacy Policy",
+    "terms_of_service": "Terms of Service"
+  },
+  "PUCollege": {
+    "title": "Mahathma PU College",
+    "history_title": "Our Journey & History",
+    "history_desc": "Mahathma Pre-University College was established in the academic year 2015-16 under the aegis of Harohalli Educational Institution. Initially offering Arts (HEGP) and Commerce (EGBA) combinations, we expanded to include Commerce with Computer Science (EBACS) in 2023-24 to meet the growing aspirations of our students.",
+    "stats": {
+      "years": "11 Years of Excellence",
+      "results": "90% Average Results",
+      "established": "Est. 2015-16"
+    },
+    "staff_title": "Our Dedicated Faculty",
+    "staff": {
+      "puttegowda": {
+        "name": "Sri. Puttegowda M C",
+        "role": "Principal / Accountancy"
+      },
+      "swarnagowri": {
+        "name": "Smt. Swarnagowri S.",
+        "role": "Asst. Lecturer (History)"
+      },
+      "anitha": {
+        "name": "Smt. Anitha H B",
+        "role": "Asst. Lecturer (Political Science)"
+      },
+      "rathnamma": {
+        "name": "Smt. Rathnamma",
+        "role": "Asst. Lecturer (Kannada)"
+      },
+      "raju": {
+        "name": "Sri. Raju C.K.",
+        "role": "Asst. Lecturer (English)"
+      },
+      "radha": {
+        "name": "Smt. Radha M.M.",
+        "role": "Asst. Lecturer (Business Studies)"
+      },
+      "nagendraswamy": {
+        "name": "Sri. Nagendraswamy G.",
+        "role": "Asst. Lecturer (Economics)"
+      },
+      "naveen": {
+        "name": "Sri. Naveen Kumar",
+        "role": "Asst. Lecturer (Computer Science)"
+      },
+      "begum": {
+        "name": "Smt. M. Begum",
+        "role": "Physical Education"
+      },
+      "harshitha": {
+        "name": "Kum. Harshitha R.",
+        "role": "Asst. Lecturer (Geography)"
+      }
+    }
+  }
+}

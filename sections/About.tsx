@@ -1,49 +1,75 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Users, GraduationCap, Building2 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useTranslations } from "next-intl";
 
-const schools = [
+const schoolImages = [
   {
     id: "school1",
-    name: "Harohalli Central School",
-    details: "Affiliated with CBSE, focusing on holistic development and modern pedagogical techniques.",
-    staff: [
-      { name: "Dr. Rajesh Kumar", role: "Principal", image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1974&auto=format&fit=crop" },
-      { name: "Ms. Sunita Sharma", role: "Vice Principal", image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop" },
-      { name: "Mr. Amit Singh", role: "Dept. Head", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop" },
+    staffImages: [
+      "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1974&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop"
     ]
   },
   {
     id: "school2",
-    name: "Harohalli High School",
-    details: "Established in 1995, following the state curriculum with a strong emphasis on academic discipline.",
-    staff: [
-      { name: "Ms. Priya Reddy", role: "Principal", image: "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?q=80&w=2070&auto=format&fit=crop" },
-      { name: "Mr. Ramesh Babu", role: "Sr. Teacher", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1974&auto=format&fit=crop" },
+    staffImages: [
+      "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1974&auto=format&fit=crop"
     ]
   },
   {
     id: "school3",
-    name: "Little Flower Kindergarten",
-    details: "A playful environment for our youngest learners to Bloom and Grow.",
-    staff: [
-      { name: "Ms. Ananya Das", role: "Coordinator", image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1976&auto=format&fit=crop" },
+    staffImages: [
+      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1976&auto=format&fit=crop"
     ]
   }
 ];
 
 const About = () => {
+  const t = useTranslations("About");
   const [activeTab, setActiveTab] = useState<"trust" | "schools">("trust");
-  const [activeSchool, setActiveSchool] = useState(schools[0].id);
+  const [activeSchool, setActiveSchool] = useState("school1");
+
+  const schoolsData = [
+    {
+      id: "school1",
+      name: t("schools.central"),
+      details: t("schools.central_desc"),
+      staff: [
+        { name: "Dr. Rajesh Kumar", role: t("roles.principal"), image: schoolImages[0].staffImages[0] },
+        { name: "Ms. Sunita Sharma", role: t("roles.vice_principal"), image: schoolImages[0].staffImages[1] },
+        { name: "Mr. Amit Singh", role: t("roles.dept_head"), image: schoolImages[0].staffImages[2] },
+      ]
+    },
+    {
+      id: "school2",
+      name: t("schools.high"),
+      details: t("schools.high_desc"),
+      staff: [
+        { name: "Ms. Priya Reddy", role: t("roles.principal"), image: schoolImages[1].staffImages[0] },
+        { name: "Mr. Ramesh Babu", role: t("roles.sr_teacher"), image: schoolImages[1].staffImages[1] },
+      ]
+    },
+    {
+      id: "school3",
+      name: t("schools.kg"),
+      details: t("schools.kg_desc"),
+      staff: [
+        { name: "Ms. Ananya Das", role: t("roles.coordinator"), image: schoolImages[2].staffImages[0] },
+      ]
+    }
+  ];
 
   return (
     <section id="about" className="section-padding bg-white">
       <div className="container mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-extrabold text-primary mb-4">About Us</h2>
+          <h2 className="text-3xl md:text-5xl font-extrabold text-primary mb-4">{t("title")}</h2>
           <div className="w-20 h-1.5 bg-primary-light mx-auto rounded-full"></div>
         </div>
 
@@ -58,7 +84,7 @@ const About = () => {
               )}
             >
               <Building2 size={22} />
-              <span>The Trust</span>
+              <span>{t("the_trust")}</span>
             </button>
             <button
               onClick={() => setActiveTab("schools")}
@@ -68,7 +94,7 @@ const About = () => {
               )}
             >
               <GraduationCap size={22} />
-              <span>Group of Schools</span>
+              <span>{t("group_of_schools")}</span>
             </button>
           </div>
         </div>
@@ -83,24 +109,26 @@ const About = () => {
               className="grid lg:grid-cols-2 gap-16 items-center"
             >
               <div className="space-y-8">
-                <h3 className="text-2xl md:text-5xl font-black text-primary-dark leading-tight">Empowering Minds Since 1995</h3>
+                <h3 className="text-2xl md:text-5xl font-black text-primary-dark leading-tight">{t("trust_heading")}</h3>
                 <p className="text-slate-700 text-xl leading-relaxed font-medium">
-                  Founded with a vision to make quality education accessible to every child, Harohalli Educational Trust has been a beacon of knowledge for over 25 years. We believe in nurturing not just students, but future leaders who are ethically grounded and socially responsible.
+                  {t("trust_description")}
                 </p>
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div className="p-8 bg-white rounded-3xl shadow-sm border border-slate-100 card-shadow">
                     <div className="w-12 h-12 bg-primary/5 rounded-xl flex items-center justify-center mb-6">
-                      <Users className="text-primary" size={28} />
+                      <div className="w-12 h-12 bg-primary/5 rounded-xl flex items-center justify-center mb-6">
+                        <Users className="text-primary" size={28} />
+                      </div>
                     </div>
-                    <h4 className="font-bold text-primary text-xl mb-3">Expert Trustees</h4>
-                    <p className="text-slate-500 leading-relaxed font-medium">Led by dedicated educators and social reformers.</p>
+                    <h4 className="font-bold text-primary text-xl mb-3">{t("trustee_title")}</h4>
+                    <p className="text-slate-500 leading-relaxed font-medium">{t("trustee_desc")}</p>
                   </div>
                   <div className="p-8 bg-white rounded-3xl shadow-sm border border-slate-100 card-shadow">
                     <div className="w-12 h-12 bg-primary/5 rounded-xl flex items-center justify-center mb-6">
                       <GraduationCap className="text-primary" size={28} />
                     </div>
-                    <h4 className="font-bold text-primary text-xl mb-3">Holistic Growth</h4>
-                    <p className="text-slate-500 leading-relaxed font-medium">Focusing on physical, mental, and spiritual well-being.</p>
+                    <h4 className="font-bold text-primary text-xl mb-3">{t("growth_title")}</h4>
+                    <p className="text-slate-500 leading-relaxed font-medium">{t("growth_desc")}</p>
                   </div>
                 </div>
               </div>
@@ -113,7 +141,7 @@ const About = () => {
                 />
                 <div className="absolute -bottom-8 -left-8 bg-white p-8 rounded-3xl shadow-2xl border border-slate-50 hidden md:block">
                   <span className="text-5xl font-black text-primary block mb-1">25+</span>
-                  <span className="text-slate-500 font-bold tracking-wide uppercase text-sm">Years of Legacy</span>
+                  <span className="text-slate-500 font-bold tracking-wide uppercase text-sm">{t("legacy_years")}</span>
                 </div>
               </div>
             </motion.div>
@@ -126,7 +154,7 @@ const About = () => {
             >
               {/* School Tabs */}
               <div className="flex flex-wrap justify-center gap-4 mb-12">
-                {schools.map((school) => (
+                {schoolsData.map((school) => (
                   <button
                     key={school.id}
                     onClick={() => setActiveSchool(school.id)}
@@ -143,7 +171,7 @@ const About = () => {
               </div>
 
               {/* School Details */}
-              {schools.map((school) => (
+              {schoolsData.map((school) => (
                 activeSchool === school.id && (
                   <div key={school.id} className="space-y-16">
                     <div className="text-center max-w-3xl mx-auto space-y-6">
