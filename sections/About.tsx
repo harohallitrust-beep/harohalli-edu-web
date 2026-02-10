@@ -41,9 +41,8 @@ const About = () => {
       name: t("schools.central"),
       details: t("schools.central_desc"),
       staff: [
-        { name: "Dr. Rajesh Kumar", role: t("roles.principal"), image: schoolImages[0].staffImages[0] },
-        { name: "Ms. Sunita Sharma", role: t("roles.vice_principal"), image: schoolImages[0].staffImages[1] },
-        { name: "Mr. Amit Singh", role: t("roles.dept_head"), image: schoolImages[0].staffImages[2] },
+        { name: "Smt. Roopa A P", role: t("roles.principal"), image: "/images/staff/placeholder-staff.jpg" },
+        { name: "Smt. Kavitha N", role: t("roles.coordinator"), image: "/images/staff/placeholder-staff.jpg" },
       ]
     },
     {
@@ -51,8 +50,8 @@ const About = () => {
       name: t("schools.high"),
       details: t("schools.high_desc"),
       staff: [
-        { name: "Ms. Priya Reddy", role: t("roles.principal"), image: schoolImages[1].staffImages[0] },
-        { name: "Mr. Ramesh Babu", role: t("roles.sr_teacher"), image: schoolImages[1].staffImages[1] },
+        { name: "Smt. Roopa A P", role: t("roles.principal"), image: "/images/staff/placeholder-staff.jpg" },
+        { name: "Smt. Sunanda M M", role: t("roles.coordinator"), image: "/images/staff/placeholder-staff.jpg" },
       ]
     },
     {
@@ -60,7 +59,8 @@ const About = () => {
       name: t("schools.kg"),
       details: t("schools.kg_desc"),
       staff: [
-        { name: "Ms. Ananya Das", role: t("roles.coordinator"), image: schoolImages[2].staffImages[0] },
+        { name: "Smt. Lavanya", role: t("roles.principal"), image: "/images/staff/placeholder-staff.jpg" },
+        { name: "Smt. Shwetha", role: t("roles.coordinator"), image: "/images/staff/placeholder-staff.jpg" },
       ]
     }
   ];
