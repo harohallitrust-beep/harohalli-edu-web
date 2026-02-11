@@ -8,8 +8,9 @@ import { Analytics } from "@vercel/analytics/next"
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Harohalli Educational Trust | Admin Portal",
-  description: "Management portal for Harohalli Educational Trust institutions.",
+  title: "Harohalli Educational Trust",
+  description:
+    "Mahatma Pre-University College, founded in 2015-16 under Harohalli Educational Institution, offers HEGP, EGBA, and EBACS. With 11 years of excellence by 2026, 90% average results, strong facilities, and dedicated faculty, we nurture discipline, values, and life skills while alumni succeed in journalism, judiciary, commerce, and beyond.",
 };
 
 export default function RootLayout({
