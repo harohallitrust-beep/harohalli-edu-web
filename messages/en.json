@@ -114,7 +114,9 @@
     "watch_video": "Watch Video",
     "youtube_subscribe": "Subscribe to our YouTube Channel",
     "youtube_desc": "Catch all the latest school events and performances live!",
-    "visit_youtube": "Visit YouTube"
+    "visit_youtube": "Visit YouTube",
+    "pu_college_event": "College Event",
+    "pu_college_campus": "Campus Life"
   },
   "Registration": {
     "admission_open": "Admissions 2026-27",
@@ -179,7 +181,8 @@
     "contact_info": "Contact Info",
     "all_rights_reserved": "All rights reserved.",
     "privacy_policy": "Privacy Policy",
-    "terms_of_service": "Terms of Service"
+    "terms_of_service": "Terms of Service",
+    "address": "Harohalli Educational Trust Complex,\nMain Road, Harohalli,\nKarnataka 562112"
   },
   "PUCollege": {
     "title": "Mahathma PU College",
