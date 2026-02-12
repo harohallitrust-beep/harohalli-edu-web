@@ -242,17 +242,17 @@ const About = () => {
 
                         <div className="space-y-8">
                           <h5 className="text-2xl font-bold text-primary text-center">{pucT("staff_title")}</h5>
-                          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
                             {school.staff.map((member, idx) => (
-                              <div key={idx} className="bg-white rounded-3xl p-6 shadow-sm border border-slate-100 card-shadow flex flex-col items-center text-center space-y-4">
+                              <div key={idx} className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-sm border border-slate-100 card-shadow flex flex-col items-center text-center space-y-3 sm:space-y-4">
                                 <img
                                   src={member.image}
                                   alt={member.name}
-                                  className="w-20 h-20 rounded-2xl object-cover shadow-md"
+                                  className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl sm:rounded-2xl object-cover shadow-md"
                                 />
                                 <div>
-                                  <h6 className="font-extrabold text-primary text-sm">{member.name}</h6>
-                                  <p className="text-primary-light font-bold uppercase tracking-wider text-[10px] mt-1">{member.role}</p>
+                                  <h6 className="font-extrabold text-primary text-xs sm:text-sm leading-tight">{member.name}</h6>
+                                  <p className="text-primary-light font-bold uppercase tracking-wider text-[8px] sm:text-[10px] mt-1">{member.role}</p>
                                 </div>
                               </div>
                             ))}
@@ -266,17 +266,17 @@ const About = () => {
                           <p className="text-slate-600 text-lg leading-relaxed">{school.details}</p>
                         </div>
 
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
                           {school.staff.map((member, idx) => (
-                            <div key={idx} className="bg-white rounded-4xl p-8 shadow-sm border border-slate-100 card-shadow flex items-center space-x-6">
+                            <div key={idx} className="bg-white rounded-3xl sm:rounded-4xl p-6 sm:p-8 shadow-sm border border-slate-100 card-shadow flex items-center space-x-4 sm:space-x-6">
                               <img
                                 src={member.image}
                                 alt={member.name}
-                                className="w-24 h-24 rounded-2xl object-cover shadow-lg"
+                                className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl object-cover shadow-lg"
                               />
                               <div className="space-y-1">
-                                <h5 className="font-extrabold text-primary text-xl">{member.name}</h5>
-                                <p className="text-primary-light font-bold uppercase tracking-wider text-xs">{member.role}</p>
+                                <h5 className="font-extrabold text-primary text-lg sm:text-xl">{member.name}</h5>
+                                <p className="text-primary-light font-bold uppercase tracking-wider text-[10px] sm:text-xs">{member.role}</p>
                               </div>
                             </div>
                           ))}
