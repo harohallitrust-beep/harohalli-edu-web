@@ -7,29 +7,6 @@ import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 
-const schoolImages = [
-  {
-    id: "school1",
-    staffImages: [
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1974&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop"
-    ]
-  },
-  {
-    id: "school2",
-    staffImages: [
-      "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1974&auto=format&fit=crop"
-    ]
-  },
-  {
-    id: "school3",
-    staffImages: [
-      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1976&auto=format&fit=crop"
-    ]
-  }
-];
 
 const About = () => {
   const t = useTranslations("About");

@@ -63,7 +63,7 @@ const VisionMission = () => {
           >
             <div className="space-y-4">
               <img
-                src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?q=80&w=2070&auto=format&fit=crop"
+                src="/images/gallery/pu-college/pu-college-6.jpeg"
                 alt="Students"
                 className="rounded-2xl h-64 w-full object-cover"
               />
@@ -78,7 +78,7 @@ const VisionMission = () => {
                 <p className="font-bold text-white/80">{t("commitment")}</p>
               </div>
               <img
-                src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?q=80&w=2071&auto=format&fit=crop"
+                src="/images/gallery/pu-college/pu-college-4.jpeg"
                 alt="Learning"
                 className="rounded-2xl h-64 w-full object-cover"
               />

@@ -14,9 +14,9 @@ const Activities = () => {
   const t = useTranslations("Activities");
 
   const activitiesData = [
-    { key: "science", image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2022&auto=format&fit=crop", icon: iconMap.science },
-    { key: "cultural", image: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=1973&auto=format&fit=crop", icon: iconMap.cultural },
-    { key: "tours", image: "https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=2070&auto=format&fit=crop", icon: iconMap.tours },
+    { key: "science", image: "/images/gallery/pu-college/pu-college-1.jpeg", icon: iconMap.science },
+    { key: "cultural", image: "/images/gallery/pu-college/pu-college-6.jpeg", icon: iconMap.cultural },
+    { key: "tours", image: "/images/gallery/pu-college/pu-college-16.jpeg", icon: iconMap.tours },
   ];
 
   return (
@@ -51,7 +51,7 @@ const Activities = () => {
                 alt={t(`items.${activity.key}`)}
                 className="w-full h-96 object-cover group-hover:scale-110 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent"></div>
+              <div className="absolute inset-0 bg-linear-to-t from-primary/90 via-primary/20 to-transparent"></div>
               <div className="absolute bottom-0 left-0 p-8 text-white">
                 <div className="p-3 bg-accent rounded-xl w-fit mb-4">
                   <activity.icon size={20} />
