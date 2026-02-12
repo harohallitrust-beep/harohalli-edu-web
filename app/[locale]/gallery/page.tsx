@@ -79,7 +79,7 @@ const GalleryContent = () => {
             className="flex items-center space-x-2 text-primary font-bold hover:translate-x-[-4px] transition-transform"
           >
             <ArrowLeft size={20} />
-            <span>Back to Home</span>
+            <span>{t("back_to_home")}</span>
           </Link>
 
           <div className="text-center">
