@@ -3,14 +3,13 @@
 import { motion } from "framer-motion";
 import { Award, Star } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { TOPPERS_DATA } from "@/lib/constants";
 
-const toppersData = [
-  { name: "Prathap H.S.", marks: "SSLC Topper", class: "SSLC", school: "Harohalli Central", image: "/images/staff/placeholder-staff.jpg" },
-  { name: "Sneha Patil", marks: "97.5%", class: "SSLC", school: "Harohalli Central", image: "/images/staff/placeholder-staff.jpg" },
-];
+
 
 const Toppers = () => {
   const t = useTranslations("Toppers");
+  const toppersData = TOPPERS_DATA;
   return (
     <section id="toppers" className="section-padding bg-slate-50">
       <div className="container mx-auto">

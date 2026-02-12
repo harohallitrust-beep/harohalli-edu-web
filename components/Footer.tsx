@@ -3,25 +3,22 @@
 import { Link } from "@/i18n/routing";
 import { Facebook, Instagram, Twitter, Mail, Phone, MapPin } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { NAV_LINKS, FOOTER_RESOURCES } from "@/lib/constants";
+import { config } from "@/lib/config";
 
 const Footer = () => {
   const t = useTranslations("Footer");
   const navT = useTranslations("Navbar");
 
-  const quickLinks = [
-    { name: navT("home"), href: "#home" },
-    { name: navT("about"), href: "#about" },
-    { name: navT("vision"), href: "#vision" },
-    { name: navT("facilities"), href: "#facilities" },
-    { name: navT("activities"), href: "#activities" },
-  ];
+  const quickLinks = NAV_LINKS.slice(0, 5).map(link => ({
+    ...link,
+    name: navT(link.key)
+  }));
 
-  const resources = [
-    { name: t("admission_req"), href: "#registration" },
-    { name: t("school_calendar"), href: "#" },
-    { name: t("academic_toppers"), href: "#toppers" },
-    { name: t("gallery"), href: "#gallery" },
-  ];
+  const resources = FOOTER_RESOURCES.map(link => ({
+    ...link,
+    name: t(link.nameKey)
+  }));
 
   return (
     <footer className="bg-primary-dark text-white pt-20 pb-10">
@@ -76,15 +73,19 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-start space-x-4 text-white/60">
                 <MapPin className="text-blue-300 shrink-0" size={20} />
-                <span className="font-medium">Harohalli, Bangalore, Karnataka</span>
+                <span className="font-medium whitespace-pre-line">{t("address")}</span>
               </li>
               <li className="flex items-center space-x-4 text-white/60">
                 <Phone className="text-blue-300 shrink-0" size={20} />
-                <span className="font-medium">+91 12345 67890</span>
+                <div className="flex flex-col">
+                  {config.contact.phones.map((phone, idx) => (
+                    <span key={idx} className="font-medium">{phone}</span>
+                  ))}
+                </div>
               </li>
               <li className="flex items-center space-x-4 text-white/60">
                 <Mail className="text-blue-300 shrink-0" size={20} />
-                <span className="font-medium">info@harohalli-trust.org</span>
+                <span className="font-medium">{config.contact.email}</span>
               </li>
             </ul>
           </div>

@@ -1,65 +1,63 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Users, GraduationCap, Building2, History, Award, BookOpen, Laptop } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/routing";
+import { Link, useRouter, usePathname } from "@/i18n/routing";
+import { SCHOOLS_DATA } from "@/lib/constants";
 
 
-const About = () => {
+const AboutContent = () => {
   const t = useTranslations("About");
   const pucT = useTranslations("PUCollege");
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+
   const [activeTab, setActiveTab] = useState<"trust" | "schools">("trust");
   const [activeSchool, setActiveSchool] = useState("school1");
 
-  const schoolsData = [
-    {
-      id: "school1",
-      name: t("schools.central"),
-      details: t("schools.central_desc"),
-      staff: [
-        { name: "Smt. Roopa A P", role: t("roles.principal"), image: "/images/staff/placeholder-staff.jpg" },
-        { name: "Smt. Kavitha N", role: t("roles.coordinator"), image: "/images/staff/placeholder-staff.jpg" },
-      ]
-    },
-    {
-      id: "school2",
-      name: t("schools.high"),
-      details: t("schools.high_desc"),
-      staff: [
-        { name: "Smt. Roopa A P", role: t("roles.principal"), image: "/images/staff/placeholder-staff.jpg" },
-        { name: "Smt. Sunanda M M", role: t("roles.coordinator"), image: "/images/staff/placeholder-staff.jpg" },
-      ]
-    },
-    {
-      id: "school3",
-      name: t("schools.kg"),
-      details: t("schools.kg_desc"),
-      staff: [
-        { name: "Smt. Lavanya", role: t("roles.principal"), image: "/images/staff/placeholder-staff.jpg" },
-        { name: "Smt. Shwetha", role: t("roles.coordinator"), image: "/images/staff/placeholder-staff.jpg" },
-      ]
-    },
-    {
-      id: "puc",
-      name: pucT("title"),
-      details: pucT("history_desc"),
-      staff: [
-        { name: "Sri. Puttegowda M C", role: pucT("staff.puttegowda.role"), image: "/images/staff/puttegowda-m-c.jpg" },
-        { name: "Smt. Swarnagowri S.", role: pucT("staff.swarnagowri.role"), image: "/images/staff/swarnagowri-s.jpg" },
-        { name: "Smt. Anitha H B", role: pucT("staff.anitha.role"), image: "/images/staff/anitha-h-b.jpg" },
-        { name: "Smt. Radha M.M.", role: pucT("staff.radha.role"), image: "/images/staff/radha-m-m.jpeg" },
-        { name: "Sri. Nagendraswamy G.", role: pucT("staff.nagendraswamy.role"), image: "/images/staff/nagendraswamy-j.jpg" },
-        { name: "Kum. Harshitha R.", role: pucT("staff.harshitha.role"), image: "/images/staff/harshitha-r.jpg" },
-        { name: "Smt. Rathnamma", role: pucT("staff.rathnamma.role"), image: "/images/staff/placeholder-staff.jpg" },
-        { name: "Sri. Raju C.K.", role: pucT("staff.raju.role"), image: "/images/staff/placeholder-staff.jpg" },
-        { name: "Sri. Naveen Kumar", role: pucT("staff.naveen.role"), image: "/images/staff/placeholder-staff.jpg" },
-        { name: "Smt. M. Begum", role: pucT("staff.begum.role"), image: "/images/staff/placeholder-staff.jpg" },
-      ]
+  // Sync state from URL on load
+  useEffect(() => {
+    const tabParam = searchParams.get("tab");
+    const schoolParam = searchParams.get("school");
+
+    if (tabParam === "trust" || tabParam === "schools") {
+      setActiveTab(tabParam);
     }
-  ];
+    if (schoolParam) {
+      setActiveSchool(schoolParam);
+    }
+  }, []);
+
+  // Sync URL when state changes
+  const handleTabChange = (tab: "trust" | "schools") => {
+    setActiveTab(tab);
+    const params = new URLSearchParams(searchParams);
+    params.set("tab", tab);
+    router.replace(`${pathname}?${params.toString()}`, { scroll: false });
+  };
+
+  const handleSchoolChange = (school: string) => {
+    setActiveSchool(school);
+    const params = new URLSearchParams(searchParams);
+    params.set("tab", "schools");
+    params.set("school", school);
+    router.replace(`${pathname}?${params.toString()}`, { scroll: false });
+  };
+
+  const schoolsData = SCHOOLS_DATA.map(school => ({
+    ...school,
+    name: school.isPUC ? pucT(school.nameKey) : t(school.nameKey),
+    details: school.isPUC ? pucT(school.descKey) : t(school.descKey),
+    staff: school.staff.map(member => ({
+      ...member,
+      role: school.isPUC ? pucT(member.roleKey) : t(member.roleKey)
+    }))
+  }));
 
   return (
     <section id="about" className="section-padding bg-white">
@@ -73,7 +71,7 @@ const About = () => {
         <div className="flex justify-center mb-12">
           <div className="flex p-1 bg-white rounded-2xl shadow-xl border border-slate-100">
             <button
-              onClick={() => setActiveTab("trust")}
+              onClick={() => handleTabChange("trust")}
               className={cn(
                 "px-8 py-4 rounded-xl font-bold transition-all flex items-center space-x-2 text-lg",
                 activeTab === "trust" ? "bg-primary text-white shadow-lg" : "text-slate-400 hover:text-primary"
@@ -83,7 +81,7 @@ const About = () => {
               <span>{t("the_trust")}</span>
             </button>
             <button
-              onClick={() => setActiveTab("schools")}
+              onClick={() => handleTabChange("schools")}
               className={cn(
                 "px-8 py-4 rounded-xl font-bold transition-all flex items-center space-x-2 text-lg",
                 activeTab === "schools" ? "bg-primary text-white shadow-lg" : "text-slate-400 hover:text-primary"
@@ -153,7 +151,7 @@ const About = () => {
                 {schoolsData.map((school) => (
                   <button
                     key={school.id}
-                    onClick={() => setActiveSchool(school.id)}
+                    onClick={() => handleSchoolChange(school.id)}
                     className={cn(
                       "px-8 py-3 rounded-2xl font-bold border-2 transition-all text-lg",
                       activeSchool === school.id
@@ -268,6 +266,14 @@ const About = () => {
         </AnimatePresence>
       </div>
     </section>
+  );
+};
+
+const About = () => {
+  return (
+    <Suspense>
+      <AboutContent />
+    </Suspense>
   );
 };
 

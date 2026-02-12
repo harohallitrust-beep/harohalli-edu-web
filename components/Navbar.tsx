@@ -6,6 +6,8 @@ import { Menu, X, Phone, Mail, Instagram, Facebook, Linkedin } from "lucide-reac
 import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
 import LanguageSwitcher from "./LanguageSwitcher";
+import { config } from "@/lib/config";
+import { NAV_LINKS } from "@/lib/constants";
 
 const Navbar = () => {
   const t = useTranslations("Navbar");
@@ -20,17 +22,10 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navLinks = [
-    { name: t("home"), href: "#home" },
-    { name: t("about"), href: "#about" },
-    { name: t("vision"), href: "#vision" },
-    { name: t("facilities"), href: "#facilities" },
-    { name: t("activities"), href: "#activities" },
-    { name: t("gallery"), href: "#gallery" },
-    { name: t("registration"), href: "#registration" },
-    { name: t("toppers"), href: "#toppers" },
-    { name: t("contact"), href: "#contact" },
-  ];
+  const navLinks = NAV_LINKS.map(link => ({
+    ...link,
+    name: t(link.key)
+  }));
 
   return (
     <nav
@@ -45,12 +40,12 @@ const Navbar = () => {
           <div className="flex items-center space-x-6">
             <span className="flex items-center space-x-2">
               <Phone size={14} className="text-blue-300" />
-              <span>+91 12345 67890</span>
+              <span>{config.contact.phones[1]}</span>
             </span>
             <span className="flex items-center space-x-2">
               <span className="flex items-center space-x-2">
                 <Mail size={14} className="text-blue-300" />
-                <span>info@harohalli-trust.org</span>
+                <span>{config.contact.email}</span>
               </span>
             </span>
           </div>

@@ -8,15 +8,18 @@ import { useTranslations } from "next-intl";
 
 import { Link } from "@/i18n/routing";
 import { config } from "../lib/config";
+import { GALLERY_DATA } from "@/lib/constants";
 
-const galleryData = [
-  { id: 4, school: "PU College", type: "image", src: "/images/gallery/pu-college/pu-college-1.jpeg", title: "College Event" },
-  { id: 5, school: "PU College", type: "image", src: "/images/gallery/pu-college/pu-college-2.jpeg", title: "Campus Life" },
-];
+
 
 const Gallery = () => {
   const t = useTranslations("Gallery");
   const [filter, setFilter] = useState("All");
+
+  const galleryData = GALLERY_DATA.map(item => ({
+    ...item,
+    title: t(item.titleKey)
+  }));
 
   const filteredItems = filter === "All"
     ? galleryData
