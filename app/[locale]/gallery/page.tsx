@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Image as ImageIcon, ArrowLeft, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/routing";
+import { Link, useRouter } from "@/i18n/routing";
 
 // Expanded gallery data (Mocking more images for the full gallery)
 const allGalleryData = [
@@ -28,6 +28,7 @@ const allGalleryData = [
 
 const GalleryContent = () => {
   const t = useTranslations("Gallery");
+  const router = useRouter();
   const searchParams = useSearchParams();
   const initialFilter = searchParams.get("filter") || "All";
   const [filter, setFilter] = useState(initialFilter);
@@ -74,13 +75,13 @@ const GalleryContent = () => {
       <div className="container mx-auto px-4">
         {/* Navigation Wrapper */}
         <div className="flex flex-col md:flex-row items-center justify-between mb-12 gap-6">
-          <Link
-            href="/"
-            className="flex items-center space-x-2 text-primary font-bold hover:translate-x-[-4px] transition-transform"
+          <button
+            onClick={() => router.back()}
+            className="flex items-center space-x-2 text-primary font-bold hover:translate-x-[-4px] transition-transform cursor-pointer"
           >
             <ArrowLeft size={20} />
             <span>{t("back_to_home")}</span>
-          </Link>
+          </button>
 
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-black text-primary mb-4 italic">{t("title")}</h1>
