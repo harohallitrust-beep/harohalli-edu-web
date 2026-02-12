@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Camera, Palette, Microscope, Globe } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/routing";
 import { ACTIVITIES_DATA } from "@/lib/constants";
 
 const iconMap = {
@@ -31,10 +32,13 @@ const Activities = () => {
               {t("subtitle")}
             </p>
           </div>
-          <button className="px-8 py-3 bg-white border border-slate-200 text-primary font-bold rounded-xl hover:bg-slate-100 transition-all flex items-center space-x-2 shadow-sm">
+          <Link
+            href="/gallery"
+            className="px-8 py-3 bg-white border border-slate-200 text-primary font-bold rounded-xl hover:bg-slate-100 transition-all flex items-center space-x-2 shadow-sm"
+          >
             <Camera size={20} />
             <span>{t("view_all")}</span>
-          </button>
+          </Link>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
