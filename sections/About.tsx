@@ -2,9 +2,10 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Users, GraduationCap, Building2 } from "lucide-react";
+import { Users, GraduationCap, Building2, History, Award, BookOpen, Laptop } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/routing";
 
 const schoolImages = [
   {
@@ -32,6 +33,7 @@ const schoolImages = [
 
 const About = () => {
   const t = useTranslations("About");
+  const pucT = useTranslations("PUCollege");
   const [activeTab, setActiveTab] = useState<"trust" | "schools">("trust");
   const [activeSchool, setActiveSchool] = useState("school1");
 
@@ -61,6 +63,23 @@ const About = () => {
       staff: [
         { name: "Smt. Lavanya", role: t("roles.principal"), image: "/images/staff/placeholder-staff.jpg" },
         { name: "Smt. Shwetha", role: t("roles.coordinator"), image: "/images/staff/placeholder-staff.jpg" },
+      ]
+    },
+    {
+      id: "puc",
+      name: pucT("title"),
+      details: pucT("history_desc"),
+      staff: [
+        { name: "Sri. Puttegowda M C", role: pucT("staff.puttegowda.role"), image: "/images/staff/puttegowda-m-c.jpg" },
+        { name: "Smt. Swarnagowri S.", role: pucT("staff.swarnagowri.role"), image: "/images/staff/swarnagowri-s.jpg" },
+        { name: "Smt. Anitha H B", role: pucT("staff.anitha.role"), image: "/images/staff/anitha-h-b.jpg" },
+        { name: "Smt. Radha M.M.", role: pucT("staff.radha.role"), image: "/images/staff/radha-m-m.jpeg" },
+        { name: "Sri. Nagendraswamy G.", role: pucT("staff.nagendraswamy.role"), image: "/images/staff/nagendraswamy-j.jpg" },
+        { name: "Kum. Harshitha R.", role: pucT("staff.harshitha.role"), image: "/images/staff/harshitha-r.jpg" },
+        { name: "Smt. Rathnamma", role: pucT("staff.rathnamma.role"), image: "/images/staff/placeholder-staff.jpg" },
+        { name: "Sri. Raju C.K.", role: pucT("staff.raju.role"), image: "/images/staff/placeholder-staff.jpg" },
+        { name: "Sri. Naveen Kumar", role: pucT("staff.naveen.role"), image: "/images/staff/placeholder-staff.jpg" },
+        { name: "Smt. M. Begum", role: pucT("staff.begum.role"), image: "/images/staff/placeholder-staff.jpg" },
       ]
     }
   ];
@@ -174,26 +193,96 @@ const About = () => {
               {schoolsData.map((school) => (
                 activeSchool === school.id && (
                   <div key={school.id} className="space-y-16">
-                    <div className="text-center max-w-3xl mx-auto space-y-6">
-                      <h4 className="text-3xl font-bold text-primary">{school.name}</h4>
-                      <p className="text-slate-600 text-lg leading-relaxed">{school.details}</p>
-                    </div>
+                    {school.id === "puc" ? (
+                      <div className="space-y-16">
+                        <div className="grid lg:grid-cols-2 gap-12 items-center">
+                          <div className="space-y-8">
+                            <h4 className="text-3xl font-bold text-primary flex items-center space-x-3">
+                              <History className="text-primary-light" size={28} />
+                              <span>{pucT("history_title")}</span>
+                            </h4>
+                            <p className="text-slate-600 text-lg leading-relaxed">{school.details}</p>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                      {school.staff.map((member, idx) => (
-                        <div key={idx} className="bg-white rounded-4xl p-8 shadow-sm border border-slate-100 card-shadow flex items-center space-x-6">
-                          <img
-                            src={member.image}
-                            alt={member.name}
-                            className="w-24 h-24 rounded-2xl object-cover shadow-lg"
-                          />
-                          <div className="space-y-1">
-                            <h5 className="font-extrabold text-primary text-xl">{member.name}</h5>
-                            <p className="text-primary-light font-bold uppercase tracking-wider text-xs">{member.role}</p>
+                            <div className="grid grid-cols-3 gap-3">
+                              <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100 text-center">
+                                <Award className="text-amber-500 mx-auto mb-2" size={24} />
+                                <span className="text-slate-700 font-bold text-xs block leading-tight">{pucT("stats.years")}</span>
+                              </div>
+                              <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100 text-center">
+                                <BookOpen className="text-blue-500 mx-auto mb-2" size={24} />
+                                <span className="text-slate-700 font-bold text-xs block leading-tight">{pucT("stats.results")}</span>
+                              </div>
+                              <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100 text-center">
+                                <History className="text-emerald-500 mx-auto mb-2" size={24} />
+                                <span className="text-slate-700 font-bold text-xs block leading-tight">{pucT("stats.established")}</span>
+                              </div>
+                            </div>
+
+                            <div className="p-6 bg-primary rounded-3xl text-white flex items-center space-x-4">
+                              <Laptop size={28} className="shrink-0" />
+                              <div className="text-sm">
+                                <h5 className="font-bold">New Combined Stream Available</h5>
+                                <p className="opacity-80">EBACS - Commerce with Computer Science</p>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className="relative">
+                            <img
+                              src="/images/pu-college/building.jpg"
+                              alt="PU College"
+                              className="rounded-3xl shadow-xl w-full h-80 object-cover"
+                            />
+                            <div className="absolute -bottom-4 -right-4 bg-white px-6 py-4 rounded-2xl shadow-lg border border-slate-50">
+                              <span className="text-2xl font-black text-primary block">90%</span>
+                              <span className="text-slate-500 font-bold uppercase text-[10px]">Consistent Results</span>
+                            </div>
                           </div>
                         </div>
-                      ))}
-                    </div>
+
+                        <div className="space-y-8">
+                          <h5 className="text-2xl font-bold text-primary text-center">{pucT("staff_title")}</h5>
+                          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+                            {school.staff.map((member, idx) => (
+                              <div key={idx} className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-sm border border-slate-100 card-shadow flex flex-col items-center text-center space-y-3 sm:space-y-4">
+                                <img
+                                  src={member.image}
+                                  alt={member.name}
+                                  className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl sm:rounded-2xl object-cover shadow-md"
+                                />
+                                <div>
+                                  <h6 className="font-extrabold text-primary text-xs sm:text-sm leading-tight">{member.name}</h6>
+                                  <p className="text-primary-light font-bold uppercase tracking-wider text-[8px] sm:text-[10px] mt-1">{member.role}</p>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    ) : (
+                      <>
+                        <div className="text-center max-w-3xl mx-auto space-y-4">
+                          <h4 className="text-3xl font-bold text-primary">{school.name}</h4>
+                          <p className="text-slate-600 text-lg leading-relaxed">{school.details}</p>
+                        </div>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
+                          {school.staff.map((member, idx) => (
+                            <div key={idx} className="bg-white rounded-3xl sm:rounded-4xl p-6 sm:p-8 shadow-sm border border-slate-100 card-shadow flex items-center space-x-4 sm:space-x-6">
+                              <img
+                                src={member.image}
+                                alt={member.name}
+                                className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl object-cover shadow-lg"
+                              />
+                              <div className="space-y-1">
+                                <h5 className="font-extrabold text-primary text-lg sm:text-xl">{member.name}</h5>
+                                <p className="text-primary-light font-bold uppercase tracking-wider text-[10px] sm:text-xs">{member.role}</p>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </>
+                    )}
                   </div>
                 )
               ))}

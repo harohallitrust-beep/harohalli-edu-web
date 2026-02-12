@@ -11,8 +11,6 @@ import { Link } from "@/i18n/routing";
 
 // Expanded gallery data (Mocking more images for the full gallery)
 const allGalleryData = [
-  { id: 1, school: "School 1", src: "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?q=80&w=2071&auto=format&fit=crop", title: "New Lab Inauguration" },
-  { id: 2, school: "School 2", src: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=2073&auto=format&fit=crop", title: "Sports Day 2023" },
   { id: 4, school: "PU College", src: "/images/gallery/pu-college/pu-college-1.jpeg", title: "College Event" },
   { id: 5, school: "PU College", src: "/images/gallery/pu-college/pu-college-2.jpeg", title: "Campus Life" },
   { id: 6, school: "PU College", src: "/images/gallery/pu-college/pu-college-3.jpeg", title: "Student Activities" },
@@ -26,9 +24,6 @@ const allGalleryData = [
     src: `/images/gallery/pu-college/pu-college-${i + 7}.jpeg`,
     title: `PU College Event ${i + 7}`
   })),
-  { id: 10, school: "School 1", src: "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1964&auto=format&fit=crop", title: "Morning Assembly" },
-  { id: 11, school: "School 2", src: "https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=2072&auto=format&fit=crop", title: "Cultural Event" },
-  { id: 12, school: "School 3", src: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2022&auto=format&fit=crop", title: "Play Area" },
 ];
 
 const GalleryContent = () => {
@@ -58,9 +53,6 @@ const GalleryContent = () => {
   const categories = [
     { id: "All", label: t("filter_all") },
     { id: "PU College", label: t("pu_college") },
-    { id: "School 1", label: "School 1" },
-    { id: "School 2", label: "School 2" },
-    { id: "School 3", label: "School 3" }
   ];
 
   const relatedImages = selectedImage

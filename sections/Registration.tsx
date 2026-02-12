@@ -123,7 +123,6 @@ const Registration = () => {
                       required
                       name="student_name"
                       type="text"
-                      placeholder={t("form.student_name_placeholder")}
                       className="w-full px-6 py-4 bg-slate-50 rounded-2xl border-2 border-transparent focus:border-primary focus:bg-white outline-hidden transition-all text-slate-900 font-medium"
                     />
                   </div>
@@ -143,7 +142,6 @@ const Registration = () => {
                     required
                     name="parent_name"
                     type="text"
-                    placeholder={t("form.parent_name_placeholder")}
                     className="w-full px-6 py-4 bg-slate-50 rounded-2xl border-2 border-transparent focus:border-primary focus:bg-white outline-hidden transition-all text-slate-900 font-medium"
                   />
                 </div>
@@ -176,7 +174,6 @@ const Registration = () => {
                   <textarea
                     rows={4}
                     name="message"
-                    placeholder={t("form.message_placeholder")}
                     className="w-full px-6 py-4 bg-slate-50 rounded-2xl border-2 border-transparent focus:border-primary focus:bg-white outline-hidden transition-all text-slate-900 font-medium resize-none"
                   ></textarea>
                 </div>

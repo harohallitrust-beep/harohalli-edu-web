@@ -134,14 +134,11 @@
     "back_to_form": "Go back to form",
     "form": {
       "student_name": "Student Name",
-      "student_name_placeholder": "Jane Doe",
       "applying_for": "Applying For",
       "parent_name": "Parent/Guardian Name",
-      "parent_name_placeholder": "John Doe",
       "phone": "Phone Number",
       "email": "Email Address",
       "message": "Message (Optional)",
-      "message_placeholder": "Tell us about yourself...",
       "submit": "Submit Inquiry"
     }
   },

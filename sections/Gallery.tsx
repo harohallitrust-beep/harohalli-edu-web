@@ -10,12 +10,8 @@ import { Link } from "@/i18n/routing";
 import { config } from "../lib/config";
 
 const galleryData = [
-  { id: 1, school: "School 1", type: "image", src: "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?q=80&w=2071&auto=format&fit=crop", title: "New Lab Inauguration" },
-  { id: 2, school: "School 2", type: "image", src: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=2073&auto=format&fit=crop", title: "Sports Day 2023" },
   { id: 4, school: "PU College", type: "image", src: "/images/gallery/pu-college/pu-college-1.jpeg", title: "College Event" },
   { id: 5, school: "PU College", type: "image", src: "/images/gallery/pu-college/pu-college-2.jpeg", title: "Campus Life" },
-  { id: 11, school: "School 2", type: "image", src: "https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=2072&auto=format&fit=crop", title: "Cultural Event" },
-  { id: 12, school: "School 3", type: "image", src: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2022&auto=format&fit=crop", title: "Play Area" },
 ];
 
 const Gallery = () => {
@@ -29,9 +25,6 @@ const Gallery = () => {
   const categories = [
     { id: "All", label: t("filter_all") },
     { id: "PU College", label: t("pu_college") },
-    { id: "School 1", label: "School 1" },
-    { id: "School 2", label: "School 2" },
-    { id: "School 3", label: "School 3" }
   ];
 
   return (

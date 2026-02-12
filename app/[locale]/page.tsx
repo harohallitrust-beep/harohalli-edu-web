@@ -2,7 +2,6 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/sections/Hero";
 import StatsSection from "@/components/StatsSection";
 import About from "@/sections/About";
-import PUCollege from "@/sections/PUCollege";
 import VisionMission from "@/sections/VisionMission";
 import Facilities from "@/sections/Facilities";
 import Activities from "@/sections/Activities";
@@ -19,7 +18,6 @@ export default function Home() {
       <Hero />
       <StatsSection />
       <About />
-      <PUCollege />
       <VisionMission />
       <Facilities />
       <Activities />
