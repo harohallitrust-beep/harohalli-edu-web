@@ -1,18 +1,52 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Users, GraduationCap, Building2, History, Award, BookOpen, Laptop } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/routing";
+import { Link, useRouter, usePathname } from "@/i18n/routing";
 
 
-const About = () => {
+const AboutContent = () => {
   const t = useTranslations("About");
   const pucT = useTranslations("PUCollege");
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+
   const [activeTab, setActiveTab] = useState<"trust" | "schools">("trust");
   const [activeSchool, setActiveSchool] = useState("school1");
+
+  // Sync state from URL on load
+  useEffect(() => {
+    const tabParam = searchParams.get("tab");
+    const schoolParam = searchParams.get("school");
+
+    if (tabParam === "trust" || tabParam === "schools") {
+      setActiveTab(tabParam);
+    }
+    if (schoolParam) {
+      setActiveSchool(schoolParam);
+    }
+  }, []);
+
+  // Sync URL when state changes
+  const handleTabChange = (tab: "trust" | "schools") => {
+    setActiveTab(tab);
+    const params = new URLSearchParams(searchParams);
+    params.set("tab", tab);
+    router.replace(`${pathname}?${params.toString()}`, { scroll: false });
+  };
+
+  const handleSchoolChange = (school: string) => {
+    setActiveSchool(school);
+    const params = new URLSearchParams(searchParams);
+    params.set("tab", "schools");
+    params.set("school", school);
+    router.replace(`${pathname}?${params.toString()}`, { scroll: false });
+  };
 
   const schoolsData = [
     {
@@ -73,7 +107,7 @@ const About = () => {
         <div className="flex justify-center mb-12">
           <div className="flex p-1 bg-white rounded-2xl shadow-xl border border-slate-100">
             <button
-              onClick={() => setActiveTab("trust")}
+              onClick={() => handleTabChange("trust")}
               className={cn(
                 "px-8 py-4 rounded-xl font-bold transition-all flex items-center space-x-2 text-lg",
                 activeTab === "trust" ? "bg-primary text-white shadow-lg" : "text-slate-400 hover:text-primary"
@@ -83,7 +117,7 @@ const About = () => {
               <span>{t("the_trust")}</span>
             </button>
             <button
-              onClick={() => setActiveTab("schools")}
+              onClick={() => handleTabChange("schools")}
               className={cn(
                 "px-8 py-4 rounded-xl font-bold transition-all flex items-center space-x-2 text-lg",
                 activeTab === "schools" ? "bg-primary text-white shadow-lg" : "text-slate-400 hover:text-primary"
@@ -153,7 +187,7 @@ const About = () => {
                 {schoolsData.map((school) => (
                   <button
                     key={school.id}
-                    onClick={() => setActiveSchool(school.id)}
+                    onClick={() => handleSchoolChange(school.id)}
                     className={cn(
                       "px-8 py-3 rounded-2xl font-bold border-2 transition-all text-lg",
                       activeSchool === school.id
@@ -268,6 +302,14 @@ const About = () => {
         </AnimatePresence>
       </div>
     </section>
+  );
+};
+
+const About = () => {
+  return (
+    <Suspense>
+      <AboutContent />
+    </Suspense>
   );
 };
 
