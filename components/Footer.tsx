@@ -3,25 +3,21 @@
 import { Link } from "@/i18n/routing";
 import { Facebook, Instagram, Twitter, Mail, Phone, MapPin } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { NAV_LINKS, FOOTER_RESOURCES } from "@/lib/constants";
 
 const Footer = () => {
   const t = useTranslations("Footer");
   const navT = useTranslations("Navbar");
 
-  const quickLinks = [
-    { name: navT("home"), href: "#home" },
-    { name: navT("about"), href: "#about" },
-    { name: navT("vision"), href: "#vision" },
-    { name: navT("facilities"), href: "#facilities" },
-    { name: navT("activities"), href: "#activities" },
-  ];
+  const quickLinks = NAV_LINKS.slice(0, 5).map(link => ({
+    ...link,
+    name: navT(link.key)
+  }));
 
-  const resources = [
-    { name: t("admission_req"), href: "#registration" },
-    { name: t("school_calendar"), href: "#" },
-    { name: t("academic_toppers"), href: "#toppers" },
-    { name: t("gallery"), href: "#gallery" },
-  ];
+  const resources = FOOTER_RESOURCES.map(link => ({
+    ...link,
+    name: t(link.nameKey)
+  }));
 
   return (
     <footer className="bg-primary-dark text-white pt-20 pb-10">

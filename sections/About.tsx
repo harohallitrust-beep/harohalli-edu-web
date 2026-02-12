@@ -7,6 +7,7 @@ import { Users, GraduationCap, Building2, History, Award, BookOpen, Laptop } fro
 import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
 import { Link, useRouter, usePathname } from "@/i18n/routing";
+import { SCHOOLS_DATA } from "@/lib/constants";
 
 
 const AboutContent = () => {
@@ -48,52 +49,15 @@ const AboutContent = () => {
     router.replace(`${pathname}?${params.toString()}`, { scroll: false });
   };
 
-  const schoolsData = [
-    {
-      id: "school1",
-      name: t("schools.central"),
-      details: t("schools.central_desc"),
-      staff: [
-        { name: "Smt. Roopa A P", role: t("roles.principal"), image: "/images/staff/placeholder-staff.jpg" },
-        { name: "Smt. Kavitha N", role: t("roles.coordinator"), image: "/images/staff/placeholder-staff.jpg" },
-      ]
-    },
-    {
-      id: "school2",
-      name: t("schools.high"),
-      details: t("schools.high_desc"),
-      staff: [
-        { name: "Smt. Roopa A P", role: t("roles.principal"), image: "/images/staff/placeholder-staff.jpg" },
-        { name: "Smt. Sunanda M M", role: t("roles.coordinator"), image: "/images/staff/placeholder-staff.jpg" },
-      ]
-    },
-    {
-      id: "school3",
-      name: t("schools.kg"),
-      details: t("schools.kg_desc"),
-      staff: [
-        { name: "Smt. Lavanya", role: t("roles.principal"), image: "/images/staff/placeholder-staff.jpg" },
-        { name: "Smt. Shwetha", role: t("roles.coordinator"), image: "/images/staff/placeholder-staff.jpg" },
-      ]
-    },
-    {
-      id: "puc",
-      name: pucT("title"),
-      details: pucT("history_desc"),
-      staff: [
-        { name: "Sri. Puttegowda M C", role: pucT("staff.puttegowda.role"), image: "/images/staff/puttegowda-m-c.jpg" },
-        { name: "Smt. Swarnagowri S.", role: pucT("staff.swarnagowri.role"), image: "/images/staff/swarnagowri-s.jpg" },
-        { name: "Smt. Anitha H B", role: pucT("staff.anitha.role"), image: "/images/staff/anitha-h-b.jpg" },
-        { name: "Smt. Radha M.M.", role: pucT("staff.radha.role"), image: "/images/staff/radha-m-m.jpeg" },
-        { name: "Sri. Nagendraswamy G.", role: pucT("staff.nagendraswamy.role"), image: "/images/staff/nagendraswamy-j.jpg" },
-        { name: "Kum. Harshitha R.", role: pucT("staff.harshitha.role"), image: "/images/staff/harshitha-r.jpg" },
-        { name: "Smt. Rathnamma", role: pucT("staff.rathnamma.role"), image: "/images/staff/placeholder-staff.jpg" },
-        { name: "Sri. Raju C.K.", role: pucT("staff.raju.role"), image: "/images/staff/placeholder-staff.jpg" },
-        { name: "Sri. Naveen Kumar", role: pucT("staff.naveen.role"), image: "/images/staff/placeholder-staff.jpg" },
-        { name: "Smt. M. Begum", role: pucT("staff.begum.role"), image: "/images/staff/placeholder-staff.jpg" },
-      ]
-    }
-  ];
+  const schoolsData = SCHOOLS_DATA.map(school => ({
+    ...school,
+    name: school.isPUC ? pucT(school.nameKey) : t(school.nameKey),
+    details: school.isPUC ? pucT(school.descKey) : t(school.descKey),
+    staff: school.staff.map(member => ({
+      ...member,
+      role: school.isPUC ? pucT(member.roleKey) : t(member.roleKey)
+    }))
+  }));
 
   return (
     <section id="about" className="section-padding bg-white">

@@ -4,12 +4,9 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { HERO_IMAGES } from "@/lib/constants";
 
-const imageUrls = [
-  "/images/hero/hero-1.jpg",
-  "/images/hero/hero-2.jpg",
-  "/images/hero/hero-3.jpg"
-];
+
 
 const Hero = () => {
   const t = useTranslations("Hero");
@@ -18,7 +15,7 @@ const Hero = () => {
   // Get translated slides and merge with image URLs
   const slides = t.raw("slides").map((slide: any, idx: number) => ({
     ...slide,
-    url: imageUrls[idx]
+    url: HERO_IMAGES[idx]
   }));
 
   useEffect(() => {

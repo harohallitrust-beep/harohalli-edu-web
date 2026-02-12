@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Camera, Palette, Microscope, Globe } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { ACTIVITIES_DATA } from "@/lib/constants";
 
 const iconMap = {
   science: Microscope,
@@ -12,12 +13,12 @@ const iconMap = {
 
 const Activities = () => {
   const t = useTranslations("Activities");
+  const activitiesData = ACTIVITIES_DATA.map(activity => ({
+    ...activity,
+    icon: iconMap[activity.key as keyof typeof iconMap]
+  }));
 
-  const activitiesData = [
-    { key: "science", image: "/images/gallery/pu-college/pu-college-1.jpeg", icon: iconMap.science },
-    { key: "cultural", image: "/images/gallery/pu-college/pu-college-6.jpeg", icon: iconMap.cultural },
-    { key: "tours", image: "/images/gallery/pu-college/pu-college-16.jpeg", icon: iconMap.tours },
-  ];
+
 
   return (
     <section id="activities" className="section-padding bg-slate-50">

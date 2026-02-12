@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { BookOpen, Monitor, Coffee, Bus, Music, Trophy } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { FACILITIES_DATA } from "@/lib/constants";
 
 const iconMap = {
   library: BookOpen,
@@ -15,15 +16,12 @@ const iconMap = {
 
 const Facilities = () => {
   const t = useTranslations("Facilities");
+  const facilities = FACILITIES_DATA.map(item => ({
+    ...item,
+    icon: iconMap[item.key as keyof typeof iconMap]
+  }));
 
-  const facilities = [
-    { key: "library", icon: iconMap.library },
-    { key: "comp_lab", icon: iconMap.comp_lab },
-    { key: "transport", icon: iconMap.transport },
-    { key: "canteen", icon: iconMap.canteen },
-    { key: "art_music", icon: iconMap.art_music },
-    { key: "sports", icon: iconMap.sports },
-  ];
+
 
   return (
     <section id="facilities" className="section-padding">
