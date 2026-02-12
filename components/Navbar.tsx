@@ -5,6 +5,7 @@ import { Link } from "@/i18n/routing";
 import { Menu, X, Phone, Mail, Instagram, Facebook, Linkedin } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const Navbar = () => {
   const t = useTranslations("Navbar");
@@ -57,6 +58,7 @@ const Navbar = () => {
             <Link href="#" className="hover:text-blue-300 transition-colors"><Facebook size={16} /></Link>
             <Link href="#" className="hover:text-blue-300 transition-colors"><Instagram size={16} /></Link>
             <Link href="#" className="hover:text-blue-300 transition-colors"><Linkedin size={16} /></Link>
+            <LanguageSwitcher />
           </div>
         </div>
       </div>
@@ -118,6 +120,9 @@ const Navbar = () => {
               {link.name}
             </Link>
           ))}
+          <div className="flex justify-end pt-2">
+            <LanguageSwitcher className="text-primary border-primary/20 bg-primary/10 hover:bg-primary/20 w-fit" />
+          </div>
         </div>
       </div>
     </nav>

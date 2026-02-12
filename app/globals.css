@@ -18,13 +18,6 @@
   --trust-blue: #1e3a8a;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0f172a;
-    --foreground: #f8fafc;
-  }
-}
-
 * {
   border-color: #e2e8f0;
 }

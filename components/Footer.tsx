@@ -3,7 +3,6 @@
 import { Link } from "@/i18n/routing";
 import { Facebook, Instagram, Twitter, Mail, Phone, MapPin } from "lucide-react";
 import { useTranslations } from "next-intl";
-import LanguageSwitcher from "./LanguageSwitcher";
 
 const Footer = () => {
   const t = useTranslations("Footer");
@@ -100,7 +99,6 @@ const Footer = () => {
               <Link href="#" className="hover:text-white transition-colors">{t("privacy_policy")}</Link>
               <Link href="#" className="hover:text-white transition-colors">{t("terms_of_service")}</Link>
             </div>
-            <LanguageSwitcher />
           </div>
         </div>
       </div>
