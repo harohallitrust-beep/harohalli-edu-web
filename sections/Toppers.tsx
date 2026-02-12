@@ -5,9 +5,8 @@ import { Award, Star } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 const toppersData = [
-  { name: "Prathap H.S.", marks: "SSLC Topper", class: "SSLC", school: "Harohalli Central", image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1974&auto=format&fit=crop" },
-  { name: "Sneha Patil", marks: "97.5%", class: "SSLC", school: "Harohalli Central", image: "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?q=80&w=1974&auto=format&fit=crop" },
-  { name: "PU Achievement", marks: "90% Avg", class: "PUC", school: "Mahathma PU College", image: "/images/gallery/pu-college/pu-college-1.jpeg" },
+  { name: "Prathap H.S.", marks: "SSLC Topper", class: "SSLC", school: "Harohalli Central", image: "/images/staff/placeholder-staff.jpg" },
+  { name: "Sneha Patil", marks: "97.5%", class: "SSLC", school: "Harohalli Central", image: "/images/staff/placeholder-staff.jpg" },
 ];
 
 const Toppers = () => {
