@@ -134,14 +134,11 @@
     "back_to_form": "ಫಾರ್ಮ್‌ಗೆ ಹಿಂತಿರುಗಿ",
     "form": {
       "student_name": "ವಿದ್ಯಾರ್ಥಿಯ ಹೆಸರು",
-      "student_name_placeholder": "ವಿದ್ಯಾರ್ಥಿಯ ಹೆಸರನ್ನು ನಮೂದಿಸಿ",
       "applying_for": "ಯಾವದಕ್ಕೆ ಅರ್ಜಿ ಸಲ್ಲಿಸುತ್ತಿದ್ದೀರಿ",
       "parent_name": "ಪೋಷಕರು/ಪಾಲಕರ ಹೆಸರು",
-      "parent_name_placeholder": "ಹೆಸರನ್ನು ನಮೂದಿಸಿ",
       "phone": "ಫೋನ್ ಸಂಖ್ಯೆ",
       "email": "ಇಮೇಲ್ ವಿಳಾಸ",
       "message": "ಸಂದೇಶ (ಐಚ್ಛಿಕ)",
-      "message_placeholder": "ನಿಮ್ಮ ಬಗ್ಗೆ ನಮಗೆ ತಿಳಿಸಿ...",
       "submit": "ವಿಚಾರಣೆಯನ್ನು ಸಲ್ಲಿಸಿ"
     }
   },
