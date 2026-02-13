@@ -9,10 +9,14 @@ import LanguageSwitcher from "./LanguageSwitcher";
 import { config } from "@/lib/config";
 import { NAV_LINKS } from "@/lib/constants";
 
+import { ChevronDown } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+
 const Navbar = () => {
   const t = useTranslations("Navbar");
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,7 +28,11 @@ const Navbar = () => {
 
   const navLinks = NAV_LINKS.map(link => ({
     ...link,
-    name: t(link.key)
+    name: t(link.key),
+    children: link.children?.map(subLink => ({
+      ...subLink,
+      name: t(subLink.key)
+    }))
   }));
 
   return (
@@ -72,18 +80,57 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden lg:flex space-x-8">
+        <div className="hidden lg:flex space-x-6 items-center">
           {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={`/${link.href}`}
-              className={cn(
-                "text-sm font-bold tracking-wide transition-colors",
-                scrolled ? "text-white hover:text-blue-300" : "text-white/90 hover:text-white"
-              )}
+            <div
+              key={link.key}
+              className="relative group"
+              onMouseEnter={() => setActiveDropdown(link.key)}
+              onMouseLeave={() => setActiveDropdown(null)}
             >
-              {link.name}
-            </Link>
+              {link.children ? (
+                <div className="flex items-center space-x-1 cursor-pointer py-2">
+                  <span className={cn(
+                    "text-sm font-bold tracking-wide transition-colors",
+                    scrolled ? "text-white hover:text-blue-300" : "text-white/90 hover:text-white"
+                  )}>
+                    {link.name}
+                  </span>
+                  <ChevronDown size={14} className={cn("transition-transform", activeDropdown === link.key && "rotate-180")} />
+
+                  <AnimatePresence>
+                    {activeDropdown === link.key && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 10 }}
+                        className="absolute top-full left-0 mt-1 w-48 bg-white rounded-2xl shadow-2xl py-3 border border-slate-100 overflow-hidden"
+                      >
+                        {link.children.map((subLink) => (
+                          <Link
+                            key={subLink.key}
+                            href={`/${subLink.href}`}
+                            className="block px-6 py-2 text-sm font-bold text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors"
+                          >
+                            {subLink.name}
+                          </Link>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ) : (
+                <Link
+                  href={`/${link.href}`}
+                  className={cn(
+                    "text-sm font-bold tracking-wide transition-colors block py-2",
+                    scrolled ? "text-white hover:text-blue-300" : "text-white/90 hover:text-white"
+                  )}
+                >
+                  {link.name}
+                </Link>
+              )}
+            </div>
           ))}
         </div>
 
@@ -100,28 +147,55 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      <div
-        className={cn(
-          "lg:hidden absolute top-full left-0 w-full bg-white shadow-xl transition-all duration-300 overflow-hidden",
-          isOpen ? "max-h-screen border-t" : "max-h-0"
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="lg:hidden absolute top-full left-0 w-full bg-white shadow-xl overflow-hidden border-t"
+          >
+            <div className="flex flex-col p-6 space-y-4 max-h-[80vh] overflow-y-auto">
+              {navLinks.map((link) => (
+                <div key={link.key} className="space-y-2">
+                  {link.children ? (
+                    <>
+                      <div className="text-xs font-black text-slate-400 uppercase tracking-widest pt-2">
+                        {link.name}
+                      </div>
+                      <div className="grid grid-cols-1 gap-1 pl-2">
+                        {link.children.map((subLink) => (
+                          <Link
+                            key={subLink.key}
+                            href={`/${subLink.href}`}
+                            className="text-lg font-bold text-primary py-2 flex items-center"
+                            onClick={() => setIsOpen(false)}
+                          >
+                            <div className="w-1.5 h-1.5 rounded-full bg-accent mr-3" />
+                            {subLink.name}
+                          </Link>
+                        ))}
+                      </div>
+                    </>
+                  ) : (
+                    <Link
+                      href={`/${link.href}`}
+                      className="text-lg font-bold text-primary py-2 block border-b border-slate-50"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {link.name}
+                    </Link>
+                  )}
+                </div>
+              ))}
+              <div className="flex justify-between items-center pt-4 border-t border-slate-100">
+                <span className="text-sm font-bold text-slate-400 uppercase italic">Harohalli Trust</span>
+                <LanguageSwitcher className="text-primary border-primary/20 bg-primary/10 hover:bg-primary/20 w-fit" />
+              </div>
+            </div>
+          </motion.div>
         )}
-      >
-        <div className="flex flex-col p-6 space-y-4">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={`/${link.href}`}
-              className="text-lg font-medium text-primary"
-              onClick={() => setIsOpen(false)}
-            >
-              {link.name}
-            </Link>
-          ))}
-          <div className="flex justify-end pt-2">
-            <LanguageSwitcher className="text-primary border-primary/20 bg-primary/10 hover:bg-primary/20 w-fit" />
-          </div>
-        </div>
-      </div>
+      </AnimatePresence>
     </nav>
   );
 };

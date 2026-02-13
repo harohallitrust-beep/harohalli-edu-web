@@ -1,12 +1,27 @@
 export const NAV_LINKS = [
   { key: "home", href: "#home" },
-  { key: "about", href: "#about" },
-  { key: "vision", href: "#vision" },
-  { key: "facilities", href: "#facilities" },
-  { key: "activities", href: "#activities" },
-  { key: "gallery", href: "#gallery" },
-  { key: "registration", href: "#registration" },
-  { key: "toppers", href: "#toppers" },
+  {
+    key: "about_group",
+    children: [
+      { key: "about", href: "#about" },
+      { key: "vision", href: "#vision" },
+    ]
+  },
+  {
+    key: "campus_group",
+    children: [
+      { key: "facilities", href: "#facilities" },
+      { key: "activities", href: "#activities" },
+      { key: "gallery", href: "#gallery" },
+    ]
+  },
+  {
+    key: "admissions_group",
+    children: [
+      { key: "registration", href: "#registration" },
+      { key: "toppers", href: "#toppers" },
+    ]
+  },
   { key: "contact", href: "#contact" },
 ];
 
