@@ -61,12 +61,14 @@ const Navbar = () => {
       <div className="container mx-auto px-6 lg:px-12 flex justify-between items-center mt-2">
         <Link
           href="/#home"
-          className={cn(
-            "text-2xl font-black tracking-tight transition-colors",
-            scrolled ? "text-white" : "text-white"
-          )}
+          className="flex items-center space-x-3 group"
         >
-          {t("trust_name")}
+          <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center p-1 group-hover:scale-110 transition-transform bg-linear-to-br from-white to-blue-50 shadow-lg">
+            <img src="/images/logo/logo-128.png" alt="HES Logo" className="w-full h-full object-contain" />
+          </div>
+          <span className="text-xl md:text-2xl font-black tracking-tight text-white uppercase italic">
+            {t("trust_name")}
+          </span>
         </Link>
 
         {/* Desktop Menu */}
