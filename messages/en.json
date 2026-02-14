@@ -9,7 +9,10 @@
     "registration": "Registration",
     "toppers": "Toppers",
     "contact": "Contact Us",
-    "trust_name": "HAROHALLI TRUST"
+    "about_group": "Institutions",
+    "campus_group": "Campus",
+    "admissions_group": "Admissions",
+    "trust_name": "HAROHALLI EDUCATION SOCIETY"
   },
   "Hero": {
     "est": "ESTABLISHED 1995",
@@ -157,7 +160,7 @@
     "phone": "Phone",
     "email": "Email",
     "address_label": "Address",
-    "address": "Harohalli Educational Trust Complex,\nMain Road, Harohalli,\nKarnataka 562112",
+    "address": "Harohalli - 562112\nHarohalli Taluk, Ramanagara Dist",
     "office_hours": "Office Hours",
     "office_hours_desc": "Mon - Sat: 9:00 AM - 4:00 PM",
     "form": {
@@ -183,7 +186,7 @@
     "all_rights_reserved": "All rights reserved.",
     "privacy_policy": "Privacy Policy",
     "terms_of_service": "Terms of Service",
-    "address": "Harohalli Educational Trust Complex,\nMain Road, Harohalli,\nKarnataka 562112"
+    "address": "Harohalli - 562112\nHarohalli Taluk, Ramanagara Dist"
   },
   "PUCollege": {
     "title": "Mahathma PU College",

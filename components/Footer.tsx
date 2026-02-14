@@ -25,7 +25,12 @@ const Footer = () => {
       <div className="container mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div className="space-y-6">
-            <h3 className="text-2xl font-black tracking-tight">{navT("trust_name")}</h3>
+            <Link href="/#home" className="inline-block group">
+              <div className="w-20 h-20 bg-white rounded-2xl flex items-center justify-center p-2 mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                <img src="/images/logo/logo-180.png" alt="HES Logo" className="w-full h-full object-contain" />
+              </div>
+              <h3 className="text-2xl font-black tracking-tight uppercase italic">{navT("trust_name")}</h3>
+            </Link>
             <p className="text-white/60 leading-relaxed font-medium">
               {t("mission_short")}
             </p>
