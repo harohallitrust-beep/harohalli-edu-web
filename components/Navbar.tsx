@@ -76,10 +76,10 @@ const Navbar = () => {
           href="/#home"
           className="flex items-center space-x-3 group"
         >
-          <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center p-1 group-hover:scale-110 transition-transform bg-linear-to-br from-white to-blue-50 shadow-lg">
+          <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform bg-linear-to-br from-white to-blue-50 shadow-lg">
             <img src="/images/logo/logo-128.png" alt="HES Logo" className="w-full h-full object-contain" />
           </div>
-          <span className="text-lg md:text-xl xl:text-2xl font-black tracking-tight text-white uppercase italic leading-none max-w-[200px] md:max-w-none">
+          <span className="text-lg md:text-xl xl:text-2xl font-black text-white uppercase leading-tight [word-spacing:0.18em] max-w-50 md:max-w-none">
             {t("trust_name")}
           </span>
         </Link>
