@@ -3,7 +3,7 @@
 import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Users, GraduationCap, Building2, History, Award, BookOpen, Laptop } from "lucide-react";
+import { Users, GraduationCap, Building2, History, Award, BookOpen, Laptop, Milestone, Lightbulb, CheckCircle2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
 import { Link, useRouter, usePathname } from "@/i18n/routing";
@@ -17,7 +17,7 @@ const AboutContent = () => {
   const searchParams = useSearchParams();
   const pathname = usePathname();
 
-  const [activeTab, setActiveTab] = useState<"trust" | "schools">("trust");
+  const [activeTab, setActiveTab] = useState<"trust" | "schools" | "journey">("trust");
   const [activeSchool, setActiveSchool] = useState("school1");
 
   // Sync state from URL on load
@@ -25,8 +25,8 @@ const AboutContent = () => {
     const tabParam = searchParams.get("tab");
     const schoolParam = searchParams.get("school");
 
-    if (tabParam === "trust" || tabParam === "schools") {
-      setActiveTab(tabParam);
+    if (tabParam === "trust" || tabParam === "schools" || tabParam === "journey") {
+      setActiveTab(tabParam as "trust" | "schools" | "journey");
     }
     if (schoolParam) {
       setActiveSchool(schoolParam);
@@ -34,7 +34,7 @@ const AboutContent = () => {
   }, []);
 
   // Sync URL when state changes
-  const handleTabChange = (tab: "trust" | "schools") => {
+  const handleTabChange = (tab: "trust" | "schools" | "journey") => {
     setActiveTab(tab);
     const params = new URLSearchParams(searchParams);
     params.set("tab", tab);
@@ -69,11 +69,11 @@ const AboutContent = () => {
 
         {/* Main Tabs */}
         <div className="flex justify-center mb-12">
-          <div className="flex p-1 bg-white rounded-2xl shadow-xl border border-slate-100">
+          <div className="flex p-1 bg-white rounded-2xl shadow-xl border border-slate-100 flex-wrap justify-center gap-2">
             <button
               onClick={() => handleTabChange("trust")}
               className={cn(
-                "px-8 py-4 rounded-xl font-bold transition-all flex items-center space-x-2 text-lg",
+                "px-6 py-4 rounded-xl font-bold transition-all flex items-center space-x-2 text-lg",
                 activeTab === "trust" ? "bg-primary text-white shadow-lg" : "text-slate-400 hover:text-primary"
               )}
             >
@@ -81,9 +81,19 @@ const AboutContent = () => {
               <span>{t("the_trust")}</span>
             </button>
             <button
+              onClick={() => handleTabChange("journey")}
+              className={cn(
+                "px-6 py-4 rounded-xl font-bold transition-all flex items-center space-x-2 text-lg",
+                activeTab === "journey" ? "bg-primary text-white shadow-lg" : "text-slate-400 hover:text-primary"
+              )}
+            >
+              <Milestone size={22} />
+              <span>{t("history_vision.tab_title")}</span>
+            </button>
+            <button
               onClick={() => handleTabChange("schools")}
               className={cn(
-                "px-8 py-4 rounded-xl font-bold transition-all flex items-center space-x-2 text-lg",
+                "px-6 py-4 rounded-xl font-bold transition-all flex items-center space-x-2 text-lg",
                 activeTab === "schools" ? "bg-primary text-white shadow-lg" : "text-slate-400 hover:text-primary"
               )}
             >
@@ -137,6 +147,65 @@ const AboutContent = () => {
                   <span className="text-5xl font-black text-primary block mb-1">25+</span>
                   <span className="text-slate-500 font-bold tracking-wide uppercase text-sm">{t("legacy_years")}</span>
                 </div>
+              </div>
+            </motion.div>
+          ) : activeTab === "journey" ? (
+            <motion.div
+              key="journey-panel"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              className="space-y-16"
+            >
+              {/* Story */}
+              <div className="max-w-4xl mx-auto text-center space-y-6">
+                <h3 className="text-3xl md:text-5xl font-black text-primary-dark leading-tight">{t("history_vision.title")}</h3>
+                <div className="text-left text-slate-700 text-lg leading-relaxed font-medium space-y-4 bg-slate-50 p-8 md:p-12 rounded-3xl border border-slate-100 shadow-inner">
+                  <p>{t("history_vision.p1")}</p>
+                  <p>{t("history_vision.p2")}</p>
+                  <p>{t("history_vision.p3")}</p>
+                  <p>{t("history_vision.p4")}</p>
+                  <p>{t("history_vision.p5")}</p>
+                  <p>{t("history_vision.p6")}</p>
+                  <p>{t("history_vision.p7")}</p>
+                  <p>{t("history_vision.p8")}</p>
+                </div>
+              </div>
+
+              {/* Fulfilled Wishes */}
+              <div className="space-y-8">
+                <h4 className="text-2xl md:text-3xl font-bold text-primary flex items-center justify-center space-x-3">
+                  <CheckCircle2 className="text-emerald-500" size={32} />
+                  <span>{t("history_vision.fulfilled_wishes_title")}</span>
+                </h4>
+                <div className="grid md:grid-cols-3 gap-6">
+                  {[1, 2, 3].map((i) => (
+                    <div key={i} className="p-6 bg-white rounded-3xl shadow-sm border border-slate-100 card-shadow">
+                      <h5 className="font-bold text-primary text-xl mb-3">{t(`history_vision.fw_${i}_title` as any)}</h5>
+                      <p className="text-slate-600 leading-relaxed font-medium">{t(`history_vision.fw_${i}_desc` as any)}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Upcoming Projects */}
+              <div className="space-y-8">
+                <h4 className="text-2xl md:text-3xl font-bold text-primary flex items-center justify-center space-x-3">
+                  <Lightbulb className="text-amber-500" size={32} />
+                  <span>{t("history_vision.upcoming_projects_title")}</span>
+                </h4>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {[1, 2, 3, 4, 5, 6].map((i) => (
+                    <div key={i} className="p-6 bg-slate-50 rounded-3xl border border-slate-100 hover:border-primary-light transition-colors">
+                      <h5 className="font-bold text-primary-dark text-lg mb-2">{t(`history_vision.up_${i}_title` as any)}</h5>
+                      <p className="text-slate-600 text-sm leading-relaxed">{t(`history_vision.up_${i}_desc` as any)}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              
+              <div className="max-w-3xl mx-auto text-center p-8 bg-primary/5 rounded-3xl border border-primary/10">
+                <p className="text-xl font-bold text-primary leading-relaxed">{t("history_vision.footer")}</p>
               </div>
             </motion.div>
           ) : (
