@@ -7,7 +7,7 @@ import { Users, GraduationCap, Building2, History, Award, BookOpen, Laptop, Mile
 import { cn, societyCompletedYears } from "@/lib/utils";
 import { useTranslations } from "next-intl";
 import { Link, useRouter, usePathname } from "@/i18n/routing";
-import { SCHOOLS_DATA } from "@/lib/constants";
+import { SCHOOLS_DATA, SOCIETY_STAFF } from "@/lib/constants";
 
 
 const AboutContent = () => {
@@ -55,7 +55,8 @@ const AboutContent = () => {
     details: school.isPUC ? pucT(school.descKey) : t(school.descKey),
     staff: school.staff.map(member => ({
       ...member,
-      role: school.isPUC ? pucT(member.roleKey) : t(member.roleKey)
+      name: school.isPUC ? pucT(member.nameKey as any) : t(member.nameKey as any),
+      role: school.isPUC ? pucT(member.roleKey as any) : t(member.roleKey as any)
     }))
   }));
 
@@ -110,42 +111,73 @@ const AboutContent = () => {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className="grid lg:grid-cols-2 gap-16 items-center"
+              className="w-full"
             >
-              <div className="space-y-8">
-                <h3 className="text-2xl md:text-5xl font-black text-primary-dark leading-tight">{t("trust_heading")}</h3>
-                <p className="text-slate-700 text-xl leading-relaxed font-medium">
-                  {t("trust_description", { societyCompletedYears: societyCompletedYears() })}
-                </p>
-                <div className="grid sm:grid-cols-2 gap-6">
-                  <div className="p-8 bg-white rounded-3xl shadow-sm border border-slate-100 card-shadow">
-                    <div className="w-12 h-12 bg-primary/5 rounded-xl flex items-center justify-center mb-6">
+              <div className="grid lg:grid-cols-2 gap-16 items-center">
+                <div className="space-y-8">
+                  <h3 className="text-2xl md:text-5xl font-black text-primary-dark leading-tight">{t("trust_heading")}</h3>
+                  <p className="text-slate-700 text-xl leading-relaxed font-medium">
+                    {t("trust_description", { societyCompletedYears: societyCompletedYears() })}
+                  </p>
+                  <div className="grid sm:grid-cols-2 gap-6">
+                    <div className="p-8 bg-white rounded-3xl shadow-sm border border-slate-100 card-shadow">
                       <div className="w-12 h-12 bg-primary/5 rounded-xl flex items-center justify-center mb-6">
-                        <Users className="text-primary" size={28} />
+                        <div className="w-12 h-12 bg-primary/5 rounded-xl flex items-center justify-center mb-6">
+                          <Users className="text-primary" size={28} />
+                        </div>
                       </div>
+                      <h4 className="font-bold text-primary text-xl mb-3">{t("trustee_title")}</h4>
+                      <p className="text-slate-500 leading-relaxed font-medium">{t("trustee_desc")}</p>
                     </div>
-                    <h4 className="font-bold text-primary text-xl mb-3">{t("trustee_title")}</h4>
-                    <p className="text-slate-500 leading-relaxed font-medium">{t("trustee_desc")}</p>
+                    <div className="p-8 bg-white rounded-3xl shadow-sm border border-slate-100 card-shadow">
+                      <div className="w-12 h-12 bg-primary/5 rounded-xl flex items-center justify-center mb-6">
+                        <GraduationCap className="text-primary" size={28} />
+                      </div>
+                      <h4 className="font-bold text-primary text-xl mb-3">{t("growth_title")}</h4>
+                      <p className="text-slate-500 leading-relaxed font-medium">{t("growth_desc")}</p>
+                    </div>
                   </div>
-                  <div className="p-8 bg-white rounded-3xl shadow-sm border border-slate-100 card-shadow">
-                    <div className="w-12 h-12 bg-primary/5 rounded-xl flex items-center justify-center mb-6">
-                      <GraduationCap className="text-primary" size={28} />
-                    </div>
-                    <h4 className="font-bold text-primary text-xl mb-3">{t("growth_title")}</h4>
-                    <p className="text-slate-500 leading-relaxed font-medium">{t("growth_desc")}</p>
+                </div>
+                <div className="relative">
+                  <div className="absolute inset-0 bg-primary/10 rounded-[2.5rem] translate-x-4 translate-y-4 -z-10"></div>
+                  <img
+                    src="/images/about/trust-campus.jpg"
+                    alt="Trust Campus"
+                    className="rounded-[2.5rem] shadow-2xl w-full object-cover h-[500px]"
+                  />
+                  <div className="absolute -bottom-8 -left-8 bg-white p-8 rounded-3xl shadow-2xl border border-slate-50 hidden md:block">
+                    <span className="text-5xl font-black text-primary block mb-1">{societyCompletedYears()}+</span>
+                    <span className="text-slate-500 font-bold tracking-wide uppercase text-sm">{t("legacy_years")}</span>
                   </div>
                 </div>
               </div>
-              <div className="relative">
-                <div className="absolute inset-0 bg-primary/10 rounded-[2.5rem] translate-x-4 translate-y-4 -z-10"></div>
-                <img
-                  src="/images/about/trust-campus.jpg"
-                  alt="Trust Campus"
-                  className="rounded-[2.5rem] shadow-2xl w-full object-cover h-[500px]"
-                />
-                <div className="absolute -bottom-8 -left-8 bg-white p-8 rounded-3xl shadow-2xl border border-slate-50 hidden md:block">
-                  <span className="text-5xl font-black text-primary block mb-1">{societyCompletedYears()}+</span>
-                  <span className="text-slate-500 font-bold tracking-wide uppercase text-sm">{t("legacy_years")}</span>
+
+              {/* Society Staff Section */}
+              <div className="space-y-10 pt-12 mt-12 border-t border-slate-100/60">
+                <div className="text-center space-y-4 mb-8">
+                  <h4 className="text-2xl md:text-4xl font-black text-primary-dark">{t("society_staff_title")}</h4>
+                  <div className="w-16 h-1 bg-primary-light mx-auto rounded-full"></div>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
+                  {SOCIETY_STAFF.map((member, idx) => (
+                    <div key={idx} className="bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-slate-100 card-shadow flex flex-col items-center text-center space-y-6 hover:border-primary-light transition-all hover:-translate-y-1 group">
+                      <div className="relative">
+                        <div className="absolute inset-0 bg-primary/5 rounded-2xl scale-[1.15] -z-10 transition-transform group-hover:bg-primary/10"></div>
+                        <img
+                          src={member.image}
+                          alt={member.name}
+                          onError={(e) => {
+                            e.currentTarget.src = "/images/staff/placeholder-staff.jpg";
+                          }}
+                          className="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl object-cover shadow-md border-2 border-white"
+                        />
+                      </div>
+                      <div className="space-y-2 w-full">
+                        <h5 className="font-extrabold text-primary text-xl md:text-2xl break-words leading-tight">{t(member.nameKey as any)}</h5>
+                        <p className="text-primary-light font-bold uppercase tracking-widest text-[11px] sm:text-xs">{t(member.roleKey as any)}</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </motion.div>

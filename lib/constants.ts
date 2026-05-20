@@ -25,14 +25,32 @@ export const NAV_LINKS = [
   { key: "contact", href: "#contact" },
 ];
 
+export const SOCIETY_STAFF = [
+  {
+    nameKey: "staff_names.r_krishnappa",
+    roleKey: "roles.accountant",
+    image: "/images/staff/society/1 - R KRISHNAPPA - ACCOUNTANT - HES.jpg"
+  },
+  {
+    nameKey: "staff_names.h_s_praveen",
+    roleKey: "roles.pro",
+    image: "/images/staff/society/2 - H S PRAVEEN - PRO - HES.jpg"
+  },
+  {
+    nameKey: "staff_names.m_rajanna",
+    roleKey: "roles.clerk",
+    image: "/images/staff/society/3 - M RAJANNA - CLERK - HES.jpg"
+  }
+];
+
 export const SCHOOLS_DATA = [
   {
     id: "school1",
     nameKey: "schools.central",
     descKey: "schools.central_desc",
     staff: [
-      { name: "Smt. Roopa A P", roleKey: "roles.principal", image: "/images/staff/placeholder-staff.jpg" },
-      { name: "Smt. Kavitha N", roleKey: "roles.coordinator", image: "/images/staff/placeholder-staff.jpg" },
+      { nameKey: "staff_names.roopa", roleKey: "roles.principal", image: "/images/staff/placeholder-staff.jpg" },
+      { nameKey: "staff_names.kavitha", roleKey: "roles.coordinator", image: "/images/staff/placeholder-staff.jpg" },
     ]
   },
   {
@@ -40,8 +58,8 @@ export const SCHOOLS_DATA = [
     nameKey: "schools.high",
     descKey: "schools.high_desc",
     staff: [
-      { name: "Smt. Roopa A P", roleKey: "roles.principal", image: "/images/staff/placeholder-staff.jpg" },
-      { name: "Smt. Sunanda M M", roleKey: "roles.coordinator", image: "/images/staff/placeholder-staff.jpg" },
+      { nameKey: "staff_names.roopa", roleKey: "roles.principal", image: "/images/staff/placeholder-staff.jpg" },
+      { nameKey: "staff_names.sunanda", roleKey: "roles.coordinator", image: "/images/staff/placeholder-staff.jpg" },
     ]
   },
   {
@@ -49,8 +67,8 @@ export const SCHOOLS_DATA = [
     nameKey: "schools.kg",
     descKey: "schools.kg_desc",
     staff: [
-      { name: "Smt. Lavanya", roleKey: "roles.principal", image: "/images/staff/placeholder-staff.jpg" },
-      { name: "Smt. Shwetha", roleKey: "roles.coordinator", image: "/images/staff/placeholder-staff.jpg" },
+      { nameKey: "staff_names.lavanya", roleKey: "roles.principal", image: "/images/staff/placeholder-staff.jpg" },
+      { nameKey: "staff_names.shwetha", roleKey: "roles.coordinator", image: "/images/staff/placeholder-staff.jpg" },
     ]
   },
   {
@@ -59,16 +77,16 @@ export const SCHOOLS_DATA = [
     nameKey: "title", // from PUCollege namespace
     descKey: "history_desc", // from PUCollege namespace
     staff: [
-      { name: "Sri. Puttegowda M C", roleKey: "staff.puttegowda.role", image: "/images/staff/puttegowda-m-c.jpg" },
-      { name: "Smt. Swarnagowri S.", roleKey: "staff.swarnagowri.role", image: "/images/staff/swarnagowri-s.jpg" },
-      { name: "Smt. Anitha H B", roleKey: "staff.anitha.role", image: "/images/staff/anitha-h-b.jpg" },
-      { name: "Smt. Radha M.M.", roleKey: "staff.radha.role", image: "/images/staff/radha-m-m.jpeg" },
-      { name: "Sri. Nagendraswamy G.", roleKey: "staff.nagendraswamy.role", image: "/images/staff/nagendraswamy-j.jpg" },
-      { name: "Kum. Harshitha R.", roleKey: "staff.harshitha.role", image: "/images/staff/harshitha-r.jpg" },
-      { name: "Smt. Rathnamma", roleKey: "staff.rathnamma.role", image: "/images/staff/placeholder-staff.jpg" },
-      { name: "Sri. Raju C.K.", roleKey: "staff.raju.role", image: "/images/staff/placeholder-staff.jpg" },
-      { name: "Sri. Naveen Kumar", roleKey: "staff.naveen.role", image: "/images/staff/placeholder-staff.jpg" },
-      { name: "Smt. M. Begum", roleKey: "staff.begum.role", image: "/images/staff/placeholder-staff.jpg" },
+      { nameKey: "staff.puttegowda.name", roleKey: "staff.puttegowda.role", image: "/images/staff/puttegowda-m-c.jpg" },
+      { nameKey: "staff.swarnagowri.name", roleKey: "staff.swarnagowri.role", image: "/images/staff/swarnagowri-s.jpg" },
+      { nameKey: "staff.anitha.name", roleKey: "staff.anitha.role", image: "/images/staff/anitha-h-b.jpg" },
+      { nameKey: "staff.radha.name", roleKey: "staff.radha.role", image: "/images/staff/radha-m-m.jpeg" },
+      { nameKey: "staff.nagendraswamy.name", roleKey: "staff.nagendraswamy.role", image: "/images/staff/nagendraswamy-j.jpg" },
+      { nameKey: "staff.harshitha.name", roleKey: "staff.harshitha.role", image: "/images/staff/harshitha-r.jpg" },
+      { nameKey: "staff.rathnamma.name", roleKey: "staff.rathnamma.role", image: "/images/staff/placeholder-staff.jpg" },
+      { nameKey: "staff.raju.name", roleKey: "staff.raju.role", image: "/images/staff/placeholder-staff.jpg" },
+      { nameKey: "staff.naveen.name", roleKey: "staff.naveen.role", image: "/images/staff/placeholder-staff.jpg" },
+      { nameKey: "staff.begum.name", roleKey: "staff.begum.role", image: "/images/staff/placeholder-staff.jpg" },
     ]
   }
 ];

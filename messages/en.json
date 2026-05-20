@@ -45,7 +45,7 @@
     "title": "About Us",
     "the_trust": "Society",
     "group_of_schools": "Group of Schools",
-    "trust_heading": "Empowering Minds Since 1995",
+    "trust_heading": "Empowering Minds Since 1958",
     "trust_description": "Founded with a vision to make quality education accessible to every child, Harohalli Educational Trust has been a beacon of knowledge for over {societyCompletedYears} years. We believe in nurturing not just students, but future leaders who are ethically grounded and socially responsible.",
     "trustee_title": "Expert Trustees",
     "trustee_desc": "Led by dedicated educators and social reformers.",
@@ -60,12 +60,26 @@
       "kg": "Little Flower Kindergarten",
       "kg_desc": "A playful environment for our youngest learners to Bloom and Grow."
     },
+    "society_staff_title": "Society Staff",
     "roles": {
       "principal": "Principal",
       "vice_principal": "Vice Principal",
       "dept_head": "Dept. Head",
       "sr_teacher": "Sr. Teacher",
-      "coordinator": "Coordinator"
+      "coordinator": "Coordinator",
+      "accountant": "Accountant",
+      "pro": "Public Relationship Officer",
+      "clerk": "Clerk"
+    },
+    "staff_names": {
+      "r_krishnappa": "R Krishnappa",
+      "h_s_praveen": "H S Praveen",
+      "m_rajanna": "M Rajanna",
+      "roopa": "Smt. Roopa A P",
+      "kavitha": "Smt. Kavitha N",
+      "sunanda": "Smt. Sunanda M M",
+      "lavanya": "Smt. Lavanya",
+      "shwetha": "Smt. Shwetha"
     },
     "history_vision": {
       "tab_title": "Journey & Vision",
