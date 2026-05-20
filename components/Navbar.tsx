@@ -47,8 +47,9 @@ const Navbar = () => {
   return (
     <nav
       className={cn(
-        "fixed w-full z-50 transition-all duration-500",
-        scrolled ? "bg-primary shadow-2xl py-2" : "bg-linear-to-b from-primary-dark/80 via-primary-dark/40 to-transparent py-4 text-white"
+        "fixed w-full z-50 transition-all duration-500 text-white",
+        (scrolled || isOpen) ? "bg-primary shadow-2xl" : "bg-linear-to-b from-primary-dark/80 via-primary-dark/40 to-transparent",
+        scrolled ? "py-2" : "py-4"
       )}
     >
       {/* Top Bar */}
@@ -74,8 +75,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-
-      <div className="container mx-auto px-6 lg:px-12 flex justify-between items-center mt-2">
+      <div className="container relative z-50 mx-auto px-6 lg:px-12 flex justify-between items-center mt-2">
         <Link
           href="/#home"
           className="flex items-center space-x-3 group"
@@ -183,43 +183,57 @@ const Navbar = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="lg:hidden fixed inset-0 top-[60px] md:top-[80px] bg-white z-[100]"
+            className="lg:hidden fixed inset-0 bg-white z-[100] flex flex-col"
           >
-            <div className="flex flex-col p-6 space-y-2 h-full overflow-y-auto">
+            {/* Mobile Menu Header */}
+            <div className="flex justify-between items-center p-6 border-b border-slate-100">
+              <Link href="/#home" onClick={() => setIsOpen(false)} className="flex items-center space-x-3 group">
+                <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform border border-slate-100">
+                  <img src="/images/logo/logo-128.png" alt="Logo" className="w-full h-full object-contain scale-110" />
+                </div>
+                <span className="text-lg font-black text-slate-800 uppercase tracking-tight">
+                  {t("trust_name")}
+                </span>
+              </Link>
+              <button onClick={() => setIsOpen(false)} className="p-2 text-slate-500 hover:text-slate-800 transition-colors bg-slate-50 rounded-full">
+                <X size={24} />
+              </button>
+            </div>
+
+            <div className="flex-1 overflow-y-auto p-8 space-y-4">
               {navLinks.map((link) => (
-                <div key={link.key} className="border-b border-slate-50 last:border-0">
+                <div key={link.key}>
                   {link.children ? (
-                    <div className="py-2">
+                    <div className="py-1">
                       <button
                         onClick={() => toggleMobileCategory(link.key)}
-                        className="w-full flex justify-between items-center py-3 text-lg font-black text-primary uppercase tracking-tight"
+                        className="w-full flex justify-between items-center py-2 text-xl font-bold text-slate-800"
                       >
                         <span>{link.name}</span>
                         <ChevronDown
                           size={20}
-                          className={cn("transition-transform duration-300 text-accent", expandedMobileCategory === link.key && "rotate-180")}
+                          className={cn("transition-transform duration-300 text-slate-400", expandedMobileCategory === link.key && "rotate-180")}
                         />
                       </button>
 
                       <motion.div
                         initial={false}
                         animate={{ height: expandedMobileCategory === link.key ? "auto" : 0 }}
-                        className="overflow-hidden bg-slate-50/50 rounded-2xl px-2"
+                        className="overflow-hidden px-4 border-l-2 border-slate-100 mt-2"
                       >
-                        <div className="grid grid-cols-1 gap-1 py-2">
+                        <div className="grid grid-cols-1 gap-3 py-3">
                           {link.children.map((subLink) => (
                             subLink.children ? (
-                              <div key={subLink.key} className="py-2">
-                                <span className="text-base font-bold text-slate-800 py-2 px-4 block uppercase tracking-tight">{subLink.name}</span>
-                                <div className="pl-4 space-y-1">
+                              <div key={subLink.key} className="py-1">
+                                <span className="text-sm font-semibold text-slate-400 uppercase tracking-widest block mb-3">{subLink.name}</span>
+                                <div className="space-y-4">
                                   {subLink.children.map(nestedLink => (
                                     <Link
                                       key={nestedLink.key}
                                       href={`/${nestedLink.href}`}
-                                      className="text-sm font-bold text-slate-600 py-2 flex items-center px-4 hover:bg-white rounded-xl transition-colors"
+                                      className="text-lg font-medium text-slate-600 block hover:text-primary transition-colors"
                                       onClick={() => setIsOpen(false)}
                                     >
-                                      <div className="w-1.5 h-1.5 rounded-full bg-accent mr-3" />
                                       {nestedLink.name}
                                     </Link>
                                   ))}
@@ -229,10 +243,9 @@ const Navbar = () => {
                               <Link
                                 key={subLink.key}
                                 href={`/${subLink.href}`}
-                                className="text-base font-bold text-slate-600 py-3 flex items-center px-4 hover:bg-white rounded-xl transition-colors"
+                                className="text-lg font-medium text-slate-600 block hover:text-primary transition-colors"
                                 onClick={() => setIsOpen(false)}
                               >
-                                <div className="w-1.5 h-1.5 rounded-full bg-accent mr-3" />
                                 {subLink.name}
                               </Link>
                             )
@@ -243,7 +256,7 @@ const Navbar = () => {
                   ) : (
                     <Link
                       href={`/${link.href}`}
-                      className="text-lg font-black text-primary py-5 block uppercase tracking-tight"
+                      className="text-xl font-bold text-slate-800 py-3 block"
                       onClick={() => setIsOpen(false)}
                     >
                       {link.name}
@@ -251,7 +264,6 @@ const Navbar = () => {
                   )}
                 </div>
               ))}
-
               <div className="mt-auto pt-8 pb-12 space-y-6">
                 <div className="flex justify-between items-center bg-primary/5 p-4 rounded-2xl border border-primary/10">
                   <span className="text-xs font-black text-primary uppercase tracking-widest italic">Organization</span>
