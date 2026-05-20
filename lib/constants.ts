@@ -45,12 +45,12 @@ export const SOCIETY_STAFF = [
 
 export const SCHOOLS_DATA = [
   {
-    id: "school1",
-    nameKey: "schools.central",
-    descKey: "schools.central_desc",
+    id: "school3",
+    nameKey: "schools.kg",
+    descKey: "schools.kg_desc",
     staff: [
-      { nameKey: "staff_names.roopa", roleKey: "roles.principal", image: "/images/staff/placeholder-staff.jpg" },
-      { nameKey: "staff_names.kavitha", roleKey: "roles.coordinator", image: "/images/staff/placeholder-staff.jpg" },
+      { nameKey: "staff_names.lavanya", roleKey: "roles.principal", image: "/images/staff/placeholder-staff.jpg" },
+      { nameKey: "staff_names.shwetha", roleKey: "roles.coordinator", image: "/images/staff/placeholder-staff.jpg" },
     ]
   },
   {
@@ -58,17 +58,40 @@ export const SCHOOLS_DATA = [
     nameKey: "schools.high",
     descKey: "schools.high_desc",
     staff: [
-      { nameKey: "staff_names.roopa", roleKey: "roles.principal", image: "/images/staff/placeholder-staff.jpg" },
-      { nameKey: "staff_names.sunanda", roleKey: "roles.coordinator", image: "/images/staff/placeholder-staff.jpg" },
+      { nameKey: "staff_names.susheelendra", roleKey: "roles.head_master", image: "/images/staff/RHS Staff/1 - M N SUSHEELENDRA - H M - RHS.jpg" },
+      { nameKey: "staff_names.shankar", roleKey: "roles.associate_master", image: "/images/staff/RHS Staff/2 - S SHANKAR - A M - RHS.jpg" },
+      { nameKey: "staff_names.ravichandra", roleKey: "roles.associate_master", image: "/images/staff/RHS Staff/3 - RAVICHANDRA S BHAJANTRI - A M - RHS.jpg" },
+      { nameKey: "staff_names.ramakrishna", roleKey: "roles.associate_master", image: "/images/staff/RHS Staff/4 - K V RAMAKRISHNA - A M - RHS.jpg" },
+      { nameKey: "staff_names.nagendra", roleKey: "roles.associate_master", image: "/images/staff/RHS Staff/5 - K R NAGENDRA - A M - RHS.jpg" },
+      { nameKey: "staff_names.hemalatha", roleKey: "roles.associate_master", image: "/images/staff/RHS Staff/6 - B HEMALATHA - A M - RHS.JPG" },
+      { nameKey: "staff_names.manjaiah", roleKey: "roles.head_clerk", image: "/images/staff/RHS Staff/7 - MANJAIAH - Head Clerk - RHS.JPG" },
     ]
   },
   {
-    id: "school3",
-    nameKey: "schools.kg",
-    descKey: "schools.kg_desc",
+    id: "school1",
+    nameKey: "schools.central",
+    descKey: "schools.central_desc",
+    historyKey: "schools.central_history",
+    featuresTitleKey: "schools.central_features_title",
+    featuresKeys: [
+      "schools.central_feature_1",
+      "schools.central_feature_2",
+      "schools.central_feature_3"
+    ],
     staff: [
-      { nameKey: "staff_names.lavanya", roleKey: "roles.principal", image: "/images/staff/placeholder-staff.jpg" },
-      { nameKey: "staff_names.shwetha", roleKey: "roles.coordinator", image: "/images/staff/placeholder-staff.jpg" },
+      { nameKey: "staff_names.shilpa", roleKey: "roles.head_mistress", image: "/images/staff/placeholder-staff.jpg" },
+      { nameKey: "staff_names.shobha", roleKey: "roles.asst_teacher", image: "/images/staff/placeholder-staff.jpg" },
+      { nameKey: "staff_names.veena", roleKey: "roles.asst_teacher_clerk", image: "/images/staff/placeholder-staff.jpg" },
+      { nameKey: "staff_names.jayabharathi", roleKey: "roles.asst_teacher", image: "/images/staff/placeholder-staff.jpg" },
+      { nameKey: "staff_names.savitha", roleKey: "roles.asst_teacher", image: "/images/staff/placeholder-staff.jpg" },
+      { nameKey: "staff_names.nagesh", roleKey: "roles.asst_teacher", image: "/images/staff/placeholder-staff.jpg" },
+      { nameKey: "staff_names.vasantha", roleKey: "roles.asst_teacher", image: "/images/staff/placeholder-staff.jpg" },
+      { nameKey: "staff_names.asha", roleKey: "roles.asst_teacher", image: "/images/staff/placeholder-staff.jpg" },
+      { nameKey: "staff_names.rohan", roleKey: "roles.asst_teacher", image: "/images/staff/placeholder-staff.jpg" },
+      { nameKey: "staff_names.sowmya", roleKey: "roles.asst_teacher", image: "/images/staff/placeholder-staff.jpg" },
+      { nameKey: "staff_names.lavanya_k", roleKey: "roles.asst_teacher", image: "/images/staff/placeholder-staff.jpg" },
+      { nameKey: "staff_names.usha", roleKey: "roles.asst_teacher", image: "/images/staff/placeholder-staff.jpg" },
+      { nameKey: "staff_names.gopal_kulkarni", roleKey: "roles.asst_teacher", image: "/images/staff/placeholder-staff.jpg" }
     ]
   },
   {

@@ -51,8 +51,11 @@ const AboutContent = () => {
 
   const schoolsData = SCHOOLS_DATA.map(school => ({
     ...school,
-    name: school.isPUC ? pucT(school.nameKey) : t(school.nameKey),
-    details: school.isPUC ? pucT(school.descKey) : t(school.descKey),
+    name: school.isPUC ? pucT(school.nameKey as any) : t(school.nameKey as any),
+    details: school.isPUC ? pucT(school.descKey as any) : t(school.descKey as any),
+    history: school.historyKey ? t(school.historyKey as any) : undefined,
+    featuresTitle: school.featuresTitleKey ? t(school.featuresTitleKey as any) : undefined,
+    features: school.featuresKeys ? school.featuresKeys.map(k => t(k as any)) : undefined,
     staff: school.staff.map(member => ({
       ...member,
       name: school.isPUC ? pucT(member.nameKey as any) : t(member.nameKey as any),
@@ -165,7 +168,7 @@ const AboutContent = () => {
                         <div className="absolute inset-0 bg-primary/5 rounded-2xl scale-[1.15] -z-10 transition-transform group-hover:bg-primary/10"></div>
                         <img
                           src={member.image}
-                          alt={member.name}
+                          alt={member.nameKey}
                           onError={(e) => {
                             e.currentTarget.src = "/images/staff/placeholder-staff.jpg";
                           }}
@@ -341,6 +344,26 @@ const AboutContent = () => {
                           <h4 className="text-3xl font-bold text-primary">{school.name}</h4>
                           <p className="text-slate-600 text-lg leading-relaxed">{school.details}</p>
                         </div>
+
+                        {school.history && (
+                          <div className="max-w-4xl mx-auto bg-white p-6 sm:p-10 rounded-3xl sm:rounded-[2rem] border border-slate-100 shadow-sm card-shadow text-left space-y-8 mt-10">
+                            <p className="text-slate-600 leading-[1.8] text-[15px] sm:text-lg font-normal whitespace-pre-line text-justify">{school.history}</p>
+                            
+                            {school.features && (
+                              <div className="space-y-4 pt-6 border-t border-slate-100">
+                                <h5 className="font-extrabold text-primary-dark text-xl">{school.featuresTitle}</h5>
+                                <ul className="space-y-3">
+                                  {school.features.map((feature, fIdx) => (
+                                    <li key={fIdx} className="flex items-start space-x-3 text-slate-700 text-lg">
+                                      <div className="w-2.5 h-2.5 rounded-full bg-primary mt-2.5 shrink-0"></div>
+                                      <span className="font-medium">{feature}</span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            )}
+                          </div>
+                        )}
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
                           {school.staff.map((member, idx) => (
