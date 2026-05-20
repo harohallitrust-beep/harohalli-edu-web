@@ -10,8 +10,15 @@
     "toppers": "Toppers",
     "contact": "Contact Us",
     "about_group": "Institutions",
-    "campus_group": "Campus",
+    "campus_group": "Campus Life",
     "admissions_group": "Admissions",
+    "society": "Society",
+    "journey": "Journey & Vision",
+    "schools_group": "Group of Schools",
+    "school_kg": "Bapu Higher Primary School Harohalli",
+    "school_high": "Rural High School, Harohalli",
+    "school_central": "Kasturba English Medium School, Harohalli",
+    "school_puc": "Mahathma PU College",
     "trust_name": "HAROHALLI EDUCATION SOCIETY"
   },
   "Hero": {
@@ -213,7 +220,9 @@
     "youtube_desc": "Catch all the latest school events and performances live!",
     "visit_youtube": "Visit YouTube",
     "pu_college_event": "College Event",
-    "pu_college_campus": "Campus Life"
+    "pu_college_campus": "Campus Life",
+    "kast_selected": "KAST Selected",
+    "kast_student": "KAST Selected Student"
   },
   "Registration": {
     "admission_open": "Admissions 2026-27",

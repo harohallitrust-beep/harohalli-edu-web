@@ -24,10 +24,10 @@ const Gallery = () => {
   const filteredItems = filter === "All"
     ? galleryData
     : galleryData.filter(item => item.school === filter);
-
   const categories = [
     { id: "All", label: t("filter_all") },
     { id: "PU College", label: t("pu_college") },
+    { id: "KAST Selected", label: t("kast_selected") },
   ];
 
   return (
@@ -40,7 +40,7 @@ const Gallery = () => {
           </div>
 
           <div className="flex flex-wrap gap-3">
-            {categories.slice(0, 3).map((category) => (
+            {categories.slice(0, 4).map((category) => (
               <button
                 key={category.id}
                 onClick={() => setFilter(category.id)}

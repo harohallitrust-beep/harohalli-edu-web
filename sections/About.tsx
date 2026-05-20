@@ -17,32 +17,29 @@ const AboutContent = () => {
   const searchParams = useSearchParams();
   const pathname = usePathname();
 
-  const [activeTab, setActiveTab] = useState<"trust" | "schools" | "journey">("trust");
-  const [activeSchool, setActiveSchool] = useState("school1");
+  const activeTab = (searchParams.get("tab") as "trust" | "schools" | "journey") || "trust";
+  const activeSchool = searchParams.get("school") || "school1";
 
-  // Sync state from URL on load
+  // Ensure smooth scroll to the section if navigating via deep links
   useEffect(() => {
-    const tabParam = searchParams.get("tab");
-    const schoolParam = searchParams.get("school");
-
-    if (tabParam === "trust" || tabParam === "schools" || tabParam === "journey") {
-      setActiveTab(tabParam as "trust" | "schools" | "journey");
+    if (window.location.hash === '#about') {
+      setTimeout(() => {
+        const element = document.getElementById('about');
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 50);
     }
-    if (schoolParam) {
-      setActiveSchool(schoolParam);
-    }
-  }, []);
+  }, [searchParams]);
 
   // Sync URL when state changes
   const handleTabChange = (tab: "trust" | "schools" | "journey") => {
-    setActiveTab(tab);
     const params = new URLSearchParams(searchParams);
     params.set("tab", tab);
     router.replace(`${pathname}?${params.toString()}`, { scroll: false });
   };
 
   const handleSchoolChange = (school: string) => {
-    setActiveSchool(school);
     const params = new URLSearchParams(searchParams);
     params.set("tab", "schools");
     params.set("school", school);

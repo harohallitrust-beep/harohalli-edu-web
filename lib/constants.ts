@@ -3,8 +3,17 @@ export const NAV_LINKS = [
   {
     key: "about_group",
     children: [
-      { key: "about", href: "#about" },
-      { key: "vision", href: "#vision" },
+      { key: "society", href: "?tab=trust#about" },
+      { key: "journey", href: "?tab=journey#about" },
+      {
+        key: "schools_group",
+        children: [
+          { key: "school_kg", href: "?tab=schools&school=school3#about" },
+          { key: "school_high", href: "?tab=schools&school=school2#about" },
+          { key: "school_central", href: "?tab=schools&school=school1#about" },
+          { key: "school_puc", href: "?tab=schools&school=puc#about" }
+        ]
+      }
     ]
   },
   {
@@ -17,10 +26,7 @@ export const NAV_LINKS = [
   },
   {
     key: "admissions_group",
-    children: [
-      { key: "registration", href: "#registration" },
-      { key: "toppers", href: "#toppers" },
-    ]
+    href: "#registration" ,
   },
   { key: "contact", href: "#contact" },
 ];
@@ -132,6 +138,27 @@ export const PUC_TOPPERS_2024 = [
 export const GALLERY_DATA = [
   { id: 4, school: "PU College", type: "image", src: "/images/gallery/pu-college/pu-college-1.jpeg", titleKey: "pu_college_event" },
   { id: 5, school: "PU College", type: "image", src: "/images/gallery/pu-college/pu-college-2.jpeg", titleKey: "pu_college_campus" },
+  { id: 6, school: "KAST Selected", type: "image", src: "/images/gallery/pu-college/kast-selected-photos/12.jpg", titleKey: "kast_student" },
+  { id: 7, school: "KAST Selected", type: "image", src: "/images/gallery/pu-college/kast-selected-photos/14.jpg", titleKey: "kast_student" },
+  { id: 8, school: "KAST Selected", type: "image", src: "/images/gallery/pu-college/kast-selected-photos/15.jpg", titleKey: "kast_student" },
+  { id: 9, school: "KAST Selected", type: "image", src: "/images/gallery/pu-college/kast-selected-photos/16.jpg", titleKey: "kast_student" },
+  { id: 10, school: "KAST Selected", type: "image", src: "/images/gallery/pu-college/kast-selected-photos/3.jpg", titleKey: "kast_student" },
+  { id: 11, school: "KAST Selected", type: "image", src: "/images/gallery/pu-college/kast-selected-photos/31.jpg", titleKey: "kast_student" },
+  { id: 12, school: "KAST Selected", type: "image", src: "/images/gallery/pu-college/kast-selected-photos/4.jpg", titleKey: "kast_student" },
+  { id: 13, school: "KAST Selected", type: "image", src: "/images/gallery/pu-college/kast-selected-photos/6.jpg", titleKey: "kast_student" },
+  { id: 14, school: "KAST Selected", type: "image", src: "/images/gallery/pu-college/kast-selected-photos/8.jpg", titleKey: "kast_student" },
+  { id: 15, school: "KAST Selected", type: "image", src: "/images/gallery/pu-college/kast-selected-photos/DSC_5248.JPG", titleKey: "kast_student" },
+  { id: 16, school: "KAST Selected", type: "image", src: "/images/gallery/pu-college/kast-selected-photos/DSC_5295.JPG", titleKey: "kast_student" },
+  { id: 17, school: "KAST Selected", type: "image", src: "/images/gallery/pu-college/kast-selected-photos/DSC_5380.JPG", titleKey: "kast_student" },
+  { id: 18, school: "KAST Selected", type: "image", src: "/images/gallery/pu-college/kast-selected-photos/DSC_5407.JPG", titleKey: "kast_student" },
+  { id: 19, school: "KAST Selected", type: "image", src: "/images/gallery/pu-college/kast-selected-photos/DSC_5466.JPG", titleKey: "kast_student" },
+  { id: 20, school: "KAST Selected", type: "image", src: "/images/gallery/pu-college/kast-selected-photos/DSC_5535.JPG", titleKey: "kast_student" },
+  { id: 21, school: "KAST Selected", type: "image", src: "/images/gallery/pu-college/kast-selected-photos/DSC_5564.JPG", titleKey: "kast_student" },
+  { id: 22, school: "KAST Selected", type: "image", src: "/images/gallery/pu-college/kast-selected-photos/DSC_5571.JPG", titleKey: "kast_student" },
+  { id: 23, school: "KAST Selected", type: "image", src: "/images/gallery/pu-college/kast-selected-photos/DSC_5623.JPG", titleKey: "kast_student" },
+  { id: 24, school: "KAST Selected", type: "image", src: "/images/gallery/pu-college/kast-selected-photos/DSC_5626.JPG", titleKey: "kast_student" },
+  { id: 25, school: "KAST Selected", type: "image", src: "/images/gallery/pu-college/kast-selected-photos/DSC_5631.JPG", titleKey: "kast_student" },
+  { id: 26, school: "KAST Selected", type: "image", src: "/images/gallery/pu-college/kast-selected-photos/DSC_5643.JPG", titleKey: "kast_student" }
 ];
 
 export const TOPPERS_DATA = [
