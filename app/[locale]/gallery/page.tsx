@@ -5,38 +5,34 @@ import { useSearchParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Image as ImageIcon, ArrowLeft, X, ChevronLeft, ChevronRight } from "lucide-react";
-import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
 import { Link, useRouter } from "@/i18n/routing";
-
-// Expanded gallery data (Mocking more images for the full gallery)
-const allGalleryData = [
-  { id: 4, school: "PU College", src: "/images/gallery/pu-college/pu-college-1.jpeg", title: "College Event" },
-  { id: 5, school: "PU College", src: "/images/gallery/pu-college/pu-college-2.jpeg", title: "Campus Life" },
-  { id: 6, school: "PU College", src: "/images/gallery/pu-college/pu-college-3.jpeg", title: "Student Activities" },
-  { id: 7, school: "PU College", src: "/images/gallery/pu-college/pu-college-4.jpeg", title: "Classroom Session" },
-  { id: 8, school: "PU College", src: "/images/gallery/pu-college/pu-college-5.jpeg", title: "Institutional Event" },
-  { id: 9, school: "PU College", src: "/images/gallery/pu-college/pu-college-6.jpeg", title: "Cultural Program" },
-  // Adding more from the 58 images available
-  ...Array.from({ length: 10 }).map((_, i) => ({
-    id: 100 + i,
-    school: "PU College",
-    src: `/images/gallery/pu-college/pu-college-${i + 7}.jpeg`,
-    title: `PU College Event ${i + 7}`
-  })),
-];
+import { cn } from "@/lib/utils";
+import ImageWithShimmer from "@/components/ImageWithShimmer";
+import { GALLERY_DATA } from "@/lib/constants";
 
 const GalleryContent = () => {
   const t = useTranslations("Gallery");
   const router = useRouter();
   const searchParams = useSearchParams();
-  const initialFilter = searchParams.get("filter") || "All";
-  const [filter, setFilter] = useState(initialFilter);
+  const filter = searchParams.get("filter") || "All";
   const [selectedImage, setSelectedImage] = useState<any>(null);
 
-  useEffect(() => {
-    setFilter(initialFilter);
-  }, [initialFilter]);
+  const handleFilterChange = (newFilter: string) => {
+    const params = new URLSearchParams(searchParams);
+    if (newFilter === "All") {
+      params.delete("filter");
+    } else {
+      params.set("filter", newFilter);
+    }
+    // We only update the query params to let React re-render automatically
+    router.replace(`?${params.toString()}`, { scroll: false });
+  };
+
+  const galleryData = GALLERY_DATA.map(item => ({
+    ...item,
+    title: t(item.titleKey)
+  }));
 
   // Handle escape key to close lightbox
   useEffect(() => {
@@ -48,16 +44,17 @@ const GalleryContent = () => {
   }, []);
 
   const filteredItems = filter === "All"
-    ? allGalleryData
-    : allGalleryData.filter(item => item.school === filter);
+    ? galleryData
+    : galleryData.filter(item => item.school === filter);
 
   const categories = [
     { id: "All", label: t("filter_all") },
     { id: "PU College", label: t("pu_college") },
+    { id: "KAST Selected", label: t("kast_selected") },
   ];
 
   const relatedImages = selectedImage
-    ? allGalleryData.filter(item => item.school === selectedImage.school && item.id !== selectedImage.id)
+    ? galleryData.filter(item => item.school === selectedImage.school && item.id !== selectedImage.id)
     : [];
 
   const navigateImage = (direction: 'next' | 'prev') => {
@@ -96,7 +93,7 @@ const GalleryContent = () => {
           {categories.map((category) => (
             <button
               key={category.id}
-              onClick={() => setFilter(category.id)}
+              onClick={() => handleFilterChange(category.id)}
               className={cn(
                 "px-8 py-3 rounded-2xl font-black transition-all text-sm uppercase tracking-wider shadow-sm",
                 filter === category.id
@@ -125,7 +122,7 @@ const GalleryContent = () => {
                 onClick={() => setSelectedImage(item)}
                 className="group relative h-80 rounded-[2.5rem] overflow-hidden shadow-lg bg-white cursor-pointer"
               >
-                <img
+                <ImageWithShimmer
                   src={item.src}
                   alt={item.title}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
@@ -189,7 +186,7 @@ const GalleryContent = () => {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 className="relative w-full h-[50vh] md:h-[65vh] rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white/10"
               >
-                <img
+                <ImageWithShimmer
                   src={selectedImage.src}
                   alt={selectedImage.title}
                   className="w-full h-full object-contain bg-slate-900"
@@ -204,7 +201,7 @@ const GalleryContent = () => {
               <div className="w-full space-y-4">
                 <h3 className="text-white/40 font-bold text-sm uppercase tracking-widest text-center px-4">Related Images from {selectedImage.school}</h3>
                 <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide px-4 justify-center">
-                  {allGalleryData.filter(img => img.school === selectedImage.school).map((img) => (
+                  {galleryData.filter(img => img.school === selectedImage.school).map((img) => (
                     <button
                       key={img.id}
                       onClick={() => setSelectedImage(img)}
@@ -213,7 +210,7 @@ const GalleryContent = () => {
                         selectedImage.id === img.id ? "border-primary scale-110 shadow-lg" : "border-transparent opacity-50 hover:opacity-100"
                       )}
                     >
-                      <img src={img.src} alt={img.title} className="w-full h-full object-cover" />
+                      <ImageWithShimmer src={img.src} alt={img.title} className="w-full h-full object-cover" />
                     </button>
                   ))}
                 </div>

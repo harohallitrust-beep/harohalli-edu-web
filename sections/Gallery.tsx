@@ -9,6 +9,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { config } from "../lib/config";
 import { GALLERY_DATA } from "@/lib/constants";
+import ImageWithShimmer from "@/components/ImageWithShimmer";
 
 
 
@@ -79,7 +80,7 @@ const Gallery = () => {
                 transition={{ duration: 0.3 }}
                 className="group relative h-72 rounded-3xl overflow-hidden shadow-sm"
               >
-                <img
+                <ImageWithShimmer
                   src={item.src}
                   alt={item.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
