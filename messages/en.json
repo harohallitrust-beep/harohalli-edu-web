@@ -10,8 +10,15 @@
     "toppers": "Toppers",
     "contact": "Contact Us",
     "about_group": "Institutions",
-    "campus_group": "Campus",
+    "campus_group": "Campus Life",
     "admissions_group": "Admissions",
+    "society": "Society",
+    "journey": "Journey & Vision",
+    "schools_group": "Group of Schools",
+    "school_kg": "Bapu Higher Primary School Harohalli",
+    "school_high": "Rural High School, Harohalli",
+    "school_central": "Kasturba English Medium School, Harohalli",
+    "school_puc": "Mahathma PU College",
     "trust_name": "HAROHALLI EDUCATION SOCIETY"
   },
   "Hero": {
@@ -43,29 +50,89 @@
   },
   "About": {
     "title": "About Us",
-    "the_trust": "The Trust",
+    "the_trust": "Society",
     "group_of_schools": "Group of Schools",
-    "trust_heading": "Empowering Minds Since 1995",
-    "trust_description": "Founded with a vision to make quality education accessible to every child, Harohalli Educational Trust has been a beacon of knowledge for over 25 years. We believe in nurturing not just students, but future leaders who are ethically grounded and socially responsible.",
+    "trust_heading": "Empowering Minds Since 1958",
+    "trust_description": "Founded with a vision to make quality education accessible to every child, Harohalli Educational Trust has been a beacon of knowledge for over {societyCompletedYears} years. We believe in nurturing not just students, but future leaders who are ethically grounded and socially responsible.",
     "trustee_title": "Expert Trustees",
     "trustee_desc": "Led by dedicated educators and social reformers.",
     "growth_title": "Holistic Growth",
     "growth_desc": "Focusing on physical, mental, and spiritual well-being.",
     "legacy_years": "Years of Legacy",
     "schools": {
-      "central": "Harohalli Central School",
-      "central_desc": "Affiliated with CBSE, focusing on holistic development and modern pedagogical techniques.",
-      "high": "Harohalli High School",
-      "high_desc": "Established in 1995, following the state curriculum with a strong emphasis on academic discipline.",
-      "kg": "Little Flower Kindergarten",
+      "central": "Kasturba English Medium School, Harohalli",
+      "central_desc": "Empowering minds through quality holistic education and modern infrastructure.",
+      "central_history": "Kasturaba School is a one of the wing to Harohalli Education Society(R.). Early days of 1998 it’s started along with the help of Bapu School (Which is a oldest wing of HES). Later at 2003 Recognised through the Karnataka Government. Under the guidance of Smt. Sujaya at beginning days it worked. Gradually a noticeable improvement was happened and at 2007 Sri. D. Nagendra Sir was worked for many years and our beloved SSLC First batch was started at 2009. From 2003 to till today we were maintaining the same quality in teaching and we have a very good teaching staff our Honorable management facilitating a moderate fee structure to poor people they wanted to serve English Medium Education to bottom line students also and so many students were utilized and till today it is happening. Since school is at heart of the city. Many students coming from local village area also. A huge campus can’t you find anywhere at Harohalli surroundings.",
+      "central_features_title": "Our Salient features as follows :",
+      "central_feature_1": "A best environment for students",
+      "central_feature_2": "Best teaching staff",
+      "central_feature_3": "Bus facility also providing",
+      "high": "Rural High School, Harohalli",
+      "high_desc": "Shaping the leaders of tomorrow with a focus on academic excellence.",
+      "kg": "Bapu Higher Primary School Harohalli",
       "kg_desc": "A playful environment for our youngest learners to Bloom and Grow."
     },
+    "society_staff_title": "Society Staff",
     "roles": {
       "principal": "Principal",
       "vice_principal": "Vice Principal",
       "dept_head": "Dept. Head",
       "sr_teacher": "Sr. Teacher",
-      "coordinator": "Coordinator"
+      "coordinator": "Coordinator",
+      "accountant": "Accountant",
+      "pro": "Public Relationship Officer",
+      "clerk": "Clerk",
+      "head_master": "Head Master",
+      "associate_master": "Associate Master",
+      "head_clerk": "Head Clerk",
+      "head_mistress": "Head Mistress",
+      "asst_teacher": "Asst. Teacher",
+      "asst_teacher_clerk": "Asst. Teacher / Clerk"
+    },
+    "staff_names": {
+      "r_krishnappa": "R Krishnappa",
+      "h_s_praveen": "H S Praveen",
+      "m_rajanna": "M Rajanna",
+      "roopa": "Smt. Roopa A P",
+      "kavitha": "Smt. Kavitha N",
+      "sunanda": "Smt. Sunanda M M",
+      "lavanya": "Smt. Lavanya",
+      "shwetha": "Smt. Shwetha",
+      "susheelendra": "M.N. Susheelendra",
+      "shankar": "S. Shankar",
+      "ravichandra": "Ravichandra S. Bhajantri",
+      "ramakrishna": "K.V. Ramakrishna",
+      "nagendra": "K.R. Nagendra",
+      "hemalatha": "B. Hemalatha",
+      "manjaiah": "Manjaiah",
+      "shilpa": "Smt. Shilpa D.M.",
+      "shobha": "Smt. Shobha H.B.",
+      "veena": "Smt. Veena R.",
+      "jayabharathi": "Smt. Jayabharathi C.",
+      "savitha": "Kumari Savitha R.",
+      "nagesh": "Sri. Nagesh V.",
+      "vasantha": "Smt. Vasantha B.",
+      "asha": "Smt. Asha T.N.",
+      "rohan": "Sri. Rohan J.",
+      "sowmya": "Smt. Sowmya S.",
+      "lavanya_k": "Kumari Lavanya K.",
+      "usha": "Smt. Usha",
+      "gopal_kulkarni": "Smt. Gopal Kulkarni"
+    },
+    "toppers_title": "Our Shining Stars (2024-25 Toppers)",
+    "toppers": {
+      "vandana": {
+        "name": "Vandana A U",
+        "desc": "I Place (93.92%)"
+      },
+      "kavana": {
+        "name": "Kavana H R",
+        "desc": "II Place (91.68%)"
+      },
+      "mehak": {
+        "name": "Mehak",
+        "desc": "III Place (83.04%)"
+      }
     },
     "history_vision": {
       "tab_title": "Journey & Vision",
@@ -153,7 +220,9 @@
     "youtube_desc": "Catch all the latest school events and performances live!",
     "visit_youtube": "Visit YouTube",
     "pu_college_event": "College Event",
-    "pu_college_campus": "Campus Life"
+    "pu_college_campus": "Campus Life",
+    "kast_selected": "KAST Selected",
+    "kast_student": "KAST Selected Student"
   },
   "Registration": {
     "admission_open": "Admissions 2026-27",
@@ -231,6 +300,7 @@
       "established": "Est. 2015-16"
     },
     "staff_title": "Our Dedicated Faculty",
+    "toppers_title": "Our Shining Stars (2024-25 Toppers)",
     "staff": {
       "puttegowda": {
         "name": "Sri. Puttegowda M C",
@@ -257,11 +327,11 @@
         "role": "Asst. Lecturer (Business Studies)"
       },
       "nagendraswamy": {
-        "name": "Sri. Nagendraswamy G.",
+        "name": "Sri. Nagendraswamy J.",
         "role": "Asst. Lecturer (Economics)"
       },
       "naveen": {
-        "name": "Sri. Naveen Kumar",
+        "name": "Sri. Naveen Kumar S.",
         "role": "Asst. Lecturer (Computer Science)"
       },
       "begum": {

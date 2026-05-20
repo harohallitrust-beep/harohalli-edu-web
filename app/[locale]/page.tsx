@@ -7,7 +7,7 @@ import Facilities from "@/sections/Facilities";
 import Activities from "@/sections/Activities";
 import Gallery from "@/sections/Gallery";
 import Registration from "@/sections/Registration";
-import Toppers from "@/sections/Toppers";
+// import Toppers from "@/sections/Toppers";
 import Contact from "@/sections/Contact";
 import Footer from "@/components/Footer";
 
@@ -23,7 +23,7 @@ export default function Home() {
       <Activities />
       <Gallery />
       <Registration />
-      <Toppers />
+      {/* <Toppers /> */}
       <Contact />
       <Footer />
     </main>

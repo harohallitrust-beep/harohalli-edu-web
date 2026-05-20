@@ -9,6 +9,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { config } from "../lib/config";
 import { GALLERY_DATA } from "@/lib/constants";
+import ImageWithShimmer from "@/components/ImageWithShimmer";
 
 
 
@@ -24,10 +25,10 @@ const Gallery = () => {
   const filteredItems = filter === "All"
     ? galleryData
     : galleryData.filter(item => item.school === filter);
-
   const categories = [
     { id: "All", label: t("filter_all") },
     { id: "PU College", label: t("pu_college") },
+    { id: "KAST Selected", label: t("kast_selected") },
   ];
 
   return (
@@ -40,7 +41,7 @@ const Gallery = () => {
           </div>
 
           <div className="flex flex-wrap gap-3">
-            {categories.slice(0, 3).map((category) => (
+            {categories.slice(0, 4).map((category) => (
               <button
                 key={category.id}
                 onClick={() => setFilter(category.id)}
@@ -79,7 +80,7 @@ const Gallery = () => {
                 transition={{ duration: 0.3 }}
                 className="group relative h-72 rounded-3xl overflow-hidden shadow-sm"
               >
-                <img
+                <ImageWithShimmer
                   src={item.src}
                   alt={item.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"

@@ -32,7 +32,11 @@ const Navbar = () => {
     name: t(link.key),
     children: link.children?.map(subLink => ({
       ...subLink,
-      name: t(subLink.key)
+      name: t(subLink.key),
+      children: subLink.children?.map(nestedLink => ({
+        ...nestedLink,
+        name: t(nestedLink.key)
+      }))
     }))
   }));
 
@@ -109,16 +113,36 @@ const Navbar = () => {
                         initial={{ opacity: 0, scale: 0.95, y: 10 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.95, y: 10 }}
-                        className="absolute top-full left-0 w-56 bg-white rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.2)] py-4 border border-slate-100 overflow-hidden z-50"
+                        className="absolute top-full left-0 w-56 bg-white rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.2)] py-4 border border-slate-100 z-50"
                       >
                         {link.children.map((subLink) => (
-                          <Link
-                            key={subLink.key}
-                            href={`/${subLink.href}`}
-                            className="block px-6 py-2.5 text-sm font-bold text-slate-600 hover:text-primary hover:bg-blue-50/50 transition-colors"
-                          >
-                            {subLink.name}
-                          </Link>
+                          subLink.children ? (
+                            <div key={subLink.key} className="relative group/sub">
+                              <div className="flex px-6 py-2.5 text-sm font-bold text-slate-600 hover:text-primary hover:bg-blue-50/50 transition-colors cursor-pointer justify-between items-center">
+                                {subLink.name}
+                                <ChevronDown size={14} className="group-hover/sub:-rotate-90 transition-transform" />
+                              </div>
+                              <div className="absolute top-0 left-full ml-0 w-72 bg-white rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.2)] py-4 border border-slate-100 hidden group-hover/sub:block">
+                                {subLink.children.map(nestedLink => (
+                                  <Link
+                                    key={nestedLink.key}
+                                    href={`/${nestedLink.href}`}
+                                    className="block px-6 py-2.5 text-sm font-bold text-slate-600 hover:text-primary hover:bg-blue-50/50 transition-colors"
+                                  >
+                                    {nestedLink.name}
+                                  </Link>
+                                ))}
+                              </div>
+                            </div>
+                          ) : (
+                            <Link
+                              key={subLink.key}
+                              href={`/${subLink.href}`}
+                              className="block px-6 py-2.5 text-sm font-bold text-slate-600 hover:text-primary hover:bg-blue-50/50 transition-colors"
+                            >
+                              {subLink.name}
+                            </Link>
+                          )
                         ))}
                       </motion.div>
                     )}
@@ -184,15 +208,34 @@ const Navbar = () => {
                       >
                         <div className="grid grid-cols-1 gap-1 py-2">
                           {link.children.map((subLink) => (
-                            <Link
-                              key={subLink.key}
-                              href={`/${subLink.href}`}
-                              className="text-base font-bold text-slate-600 py-3 flex items-center px-4 hover:bg-white rounded-xl transition-colors"
-                              onClick={() => setIsOpen(false)}
-                            >
-                              <div className="w-1.5 h-1.5 rounded-full bg-accent mr-3" />
-                              {subLink.name}
-                            </Link>
+                            subLink.children ? (
+                              <div key={subLink.key} className="py-2">
+                                <span className="text-base font-bold text-slate-800 py-2 px-4 block uppercase tracking-tight">{subLink.name}</span>
+                                <div className="pl-4 space-y-1">
+                                  {subLink.children.map(nestedLink => (
+                                    <Link
+                                      key={nestedLink.key}
+                                      href={`/${nestedLink.href}`}
+                                      className="text-sm font-bold text-slate-600 py-2 flex items-center px-4 hover:bg-white rounded-xl transition-colors"
+                                      onClick={() => setIsOpen(false)}
+                                    >
+                                      <div className="w-1.5 h-1.5 rounded-full bg-accent mr-3" />
+                                      {nestedLink.name}
+                                    </Link>
+                                  ))}
+                                </div>
+                              </div>
+                            ) : (
+                              <Link
+                                key={subLink.key}
+                                href={`/${subLink.href}`}
+                                className="text-base font-bold text-slate-600 py-3 flex items-center px-4 hover:bg-white rounded-xl transition-colors"
+                                onClick={() => setIsOpen(false)}
+                              >
+                                <div className="w-1.5 h-1.5 rounded-full bg-accent mr-3" />
+                                {subLink.name}
+                              </Link>
+                            )
                           ))}
                         </div>
                       </motion.div>
