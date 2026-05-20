@@ -43,10 +43,10 @@
   },
   "About": {
     "title": "About Us",
-    "the_trust": "The Trust",
+    "the_trust": "Society",
     "group_of_schools": "Group of Schools",
     "trust_heading": "Empowering Minds Since 1995",
-    "trust_description": "Founded with a vision to make quality education accessible to every child, Harohalli Educational Trust has been a beacon of knowledge for over 25 years. We believe in nurturing not just students, but future leaders who are ethically grounded and socially responsible.",
+    "trust_description": "Founded with a vision to make quality education accessible to every child, Harohalli Educational Trust has been a beacon of knowledge for over {societyCompletedYears} years. We believe in nurturing not just students, but future leaders who are ethically grounded and socially responsible.",
     "trustee_title": "Expert Trustees",
     "trustee_desc": "Led by dedicated educators and social reformers.",
     "growth_title": "Holistic Growth",

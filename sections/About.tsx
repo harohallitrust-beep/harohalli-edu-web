@@ -4,7 +4,7 @@ import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Users, GraduationCap, Building2, History, Award, BookOpen, Laptop, Milestone, Lightbulb, CheckCircle2 } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn, societyCompletedYears } from "@/lib/utils";
 import { useTranslations } from "next-intl";
 import { Link, useRouter, usePathname } from "@/i18n/routing";
 import { SCHOOLS_DATA } from "@/lib/constants";
@@ -115,7 +115,7 @@ const AboutContent = () => {
               <div className="space-y-8">
                 <h3 className="text-2xl md:text-5xl font-black text-primary-dark leading-tight">{t("trust_heading")}</h3>
                 <p className="text-slate-700 text-xl leading-relaxed font-medium">
-                  {t("trust_description")}
+                  {t("trust_description", { societyCompletedYears: societyCompletedYears() })}
                 </p>
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div className="p-8 bg-white rounded-3xl shadow-sm border border-slate-100 card-shadow">
@@ -144,7 +144,7 @@ const AboutContent = () => {
                   className="rounded-[2.5rem] shadow-2xl w-full object-cover h-[500px]"
                 />
                 <div className="absolute -bottom-8 -left-8 bg-white p-8 rounded-3xl shadow-2xl border border-slate-50 hidden md:block">
-                  <span className="text-5xl font-black text-primary block mb-1">25+</span>
+                  <span className="text-5xl font-black text-primary block mb-1">{societyCompletedYears()}+</span>
                   <span className="text-slate-500 font-bold tracking-wide uppercase text-sm">{t("legacy_years")}</span>
                 </div>
               </div>
