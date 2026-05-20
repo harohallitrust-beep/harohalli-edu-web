@@ -78,6 +78,12 @@ export const SCHOOLS_DATA = [
       "schools.central_feature_2",
       "schools.central_feature_3"
     ],
+    toppersTitleKey: "toppers_title",
+    toppers: [
+      { nameKey: "toppers.vandana.name", descKey: "toppers.vandana.desc", image: "/images/staff/kasturaba-school-photos/toppers/2024-25/vandana-1.jpg" },
+      { nameKey: "toppers.kavana.name", descKey: "toppers.kavana.desc", image: "/images/staff/kasturaba-school-photos/toppers/2024-25/kavana-2.jpg" },
+      { nameKey: "toppers.mehak.name", descKey: "toppers.mehak.desc", image: "/images/staff/kasturaba-school-photos/toppers/2024-25/mehak-3.jpg" }
+    ],
     staff: [
       { nameKey: "staff_names.shilpa", roleKey: "roles.head_mistress", image: "/images/staff/placeholder-staff.jpg" },
       { nameKey: "staff_names.shobha", roleKey: "roles.asst_teacher", image: "/images/staff/placeholder-staff.jpg" },
@@ -100,18 +106,27 @@ export const SCHOOLS_DATA = [
     nameKey: "title", // from PUCollege namespace
     descKey: "history_desc", // from PUCollege namespace
     staff: [
-      { nameKey: "staff.puttegowda.name", roleKey: "staff.puttegowda.role", image: "/images/staff/puttegowda-m-c.jpg" },
-      { nameKey: "staff.swarnagowri.name", roleKey: "staff.swarnagowri.role", image: "/images/staff/swarnagowri-s.jpg" },
-      { nameKey: "staff.anitha.name", roleKey: "staff.anitha.role", image: "/images/staff/anitha-h-b.jpg" },
-      { nameKey: "staff.radha.name", roleKey: "staff.radha.role", image: "/images/staff/radha-m-m.jpeg" },
-      { nameKey: "staff.nagendraswamy.name", roleKey: "staff.nagendraswamy.role", image: "/images/staff/nagendraswamy-j.jpg" },
-      { nameKey: "staff.harshitha.name", roleKey: "staff.harshitha.role", image: "/images/staff/harshitha-r.jpg" },
-      { nameKey: "staff.rathnamma.name", roleKey: "staff.rathnamma.role", image: "/images/staff/placeholder-staff.jpg" },
-      { nameKey: "staff.raju.name", roleKey: "staff.raju.role", image: "/images/staff/placeholder-staff.jpg" },
-      { nameKey: "staff.naveen.name", roleKey: "staff.naveen.role", image: "/images/staff/placeholder-staff.jpg" },
-      { nameKey: "staff.begum.name", roleKey: "staff.begum.role", image: "/images/staff/placeholder-staff.jpg" },
+      { nameKey: "staff.puttegowda.name", roleKey: "staff.puttegowda.role", image: "/images/staff/mahathma-pu-college-staff-photo/1) SRI. PUTTEGOWDA M C - PRINCIPAL.jpg" },
+      { nameKey: "staff.nagendraswamy.name", roleKey: "staff.nagendraswamy.role", image: "/images/staff/mahathma-pu-college-staff-photo/2) SRI. NAGENDRASWAMY J. - ASST. LECTURER.jpg" },
+      { nameKey: "staff.anitha.name", roleKey: "staff.anitha.role", image: "/images/staff/mahathma-pu-college-staff-photo/3) SRIMATHI ANITHA H B - ASST. LECTURER.jpg" },
+      { nameKey: "staff.swarnagowri.name", roleKey: "staff.swarnagowri.role", image: "/images/staff/mahathma-pu-college-staff-photo/4) SRIMATHI SWARNAGOWRI S -  ASST. LECTURER.jpg" },
+      { nameKey: "staff.raju.name", roleKey: "staff.raju.role", image: "/images/staff/mahathma-pu-college-staff-photo/5) SRI. RAJU C K - ASST. LECTURER.jpg" },
+      { nameKey: "staff.naveen.name", roleKey: "staff.naveen.role", image: "/images/staff/mahathma-pu-college-staff-photo/6) SRI. NAVEEN KUMAR S - ASST. LECTURER.jpg" },
+      { nameKey: "staff.begum.name", roleKey: "staff.begum.role", image: "/images/staff/mahathma-pu-college-staff-photo/7) SMT. M BEGUM - P.E.jpg" },
+      { nameKey: "staff.harshitha.name", roleKey: "staff.harshitha.role", image: "/images/staff/mahathma-pu-college-staff-photo/8) KUM. HARSHITHA R - ASST. LECTURER.jpg" },
+      { nameKey: "staff.radha.name", roleKey: "staff.radha.role", image: "/images/staff/mahathma-pu-college-staff-photo/9) SMT. RADHA M M - ASST. LECTURER.jpg" },
+      { nameKey: "staff.rathnamma.name", roleKey: "staff.rathnamma.role", image: "/images/staff/placeholder-staff.jpg" }
     ]
   }
+];
+
+export const PUC_TOPPERS_2024 = [
+  "/images/staff/mahathma-pu-college-staff-photo/toppers/2024-25 - TOPPERS/WhatsApp Image 2026-01-07 at 12.35.40 PM(17) - Copy.jpeg",
+  "/images/staff/mahathma-pu-college-staff-photo/toppers/2024-25 - TOPPERS/WhatsApp Image 2026-01-07 at 12.35.40 PM(18) - Copy.jpeg",
+  "/images/staff/mahathma-pu-college-staff-photo/toppers/2024-25 - TOPPERS/WhatsApp Image 2026-01-07 at 12.35.40 PM(19) - Copy.jpeg",
+  "/images/staff/mahathma-pu-college-staff-photo/toppers/2024-25 - TOPPERS/WhatsApp Image 2026-01-07 at 12.35.40 PM(20) - Copy.jpeg",
+  "/images/staff/mahathma-pu-college-staff-photo/toppers/2024-25 - TOPPERS/WhatsApp Image 2026-01-07 at 12.35.40 PM(21) - Copy.jpeg",
+  "/images/staff/mahathma-pu-college-staff-photo/toppers/2024-25 - TOPPERS/WhatsApp Image 2026-01-07 at 12.35.40 PM(22) - Copy.jpeg"
 ];
 
 export const GALLERY_DATA = [

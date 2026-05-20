@@ -112,6 +112,21 @@
       "usha": "Smt. Usha",
       "gopal_kulkarni": "Smt. Gopal Kulkarni"
     },
+    "toppers_title": "Our Shining Stars (2024-25 Toppers)",
+    "toppers": {
+      "vandana": {
+        "name": "Vandana A U",
+        "desc": "I Place (93.92%)"
+      },
+      "kavana": {
+        "name": "Kavana H R",
+        "desc": "II Place (91.68%)"
+      },
+      "mehak": {
+        "name": "Mehak",
+        "desc": "III Place (83.04%)"
+      }
+    },
     "history_vision": {
       "tab_title": "Journey & Vision",
       "title": "The Journey and Future Vision of Harohalli Educational Institution.",
@@ -276,6 +291,7 @@
       "established": "Est. 2015-16"
     },
     "staff_title": "Our Dedicated Faculty",
+    "toppers_title": "Our Shining Stars (2024-25 Toppers)",
     "staff": {
       "puttegowda": {
         "name": "Sri. Puttegowda M C",
@@ -302,11 +318,11 @@
         "role": "Asst. Lecturer (Business Studies)"
       },
       "nagendraswamy": {
-        "name": "Sri. Nagendraswamy G.",
+        "name": "Sri. Nagendraswamy J.",
         "role": "Asst. Lecturer (Economics)"
       },
       "naveen": {
-        "name": "Sri. Naveen Kumar",
+        "name": "Sri. Naveen Kumar S.",
         "role": "Asst. Lecturer (Computer Science)"
       },
       "begum": {

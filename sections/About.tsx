@@ -7,7 +7,7 @@ import { Users, GraduationCap, Building2, History, Award, BookOpen, Laptop, Mile
 import { cn, societyCompletedYears } from "@/lib/utils";
 import { useTranslations } from "next-intl";
 import { Link, useRouter, usePathname } from "@/i18n/routing";
-import { SCHOOLS_DATA, SOCIETY_STAFF } from "@/lib/constants";
+import { SCHOOLS_DATA, SOCIETY_STAFF, PUC_TOPPERS_2024 } from "@/lib/constants";
 
 
 const AboutContent = () => {
@@ -56,6 +56,12 @@ const AboutContent = () => {
     history: school.historyKey ? t(school.historyKey as any) : undefined,
     featuresTitle: school.featuresTitleKey ? t(school.featuresTitleKey as any) : undefined,
     features: school.featuresKeys ? school.featuresKeys.map(k => t(k as any)) : undefined,
+    toppersTitle: school.toppersTitleKey ? t(school.toppersTitleKey as any) : undefined,
+    toppers: school.toppers ? school.toppers.map(topper => ({
+      ...topper,
+      name: t(topper.nameKey as any),
+      desc: t(topper.descKey as any)
+    })) : undefined,
     staff: school.staff.map(member => ({
       ...member,
       name: school.isPUC ? pucT(member.nameKey as any) : t(member.nameKey as any),
@@ -337,6 +343,21 @@ const AboutContent = () => {
                             ))}
                           </div>
                         </div>
+
+                        <div className="space-y-8 pt-12 mt-12 border-t border-slate-100/60">
+                          <h5 className="text-2xl font-bold text-primary text-center">{pucT("toppers_title")}</h5>
+                          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6">
+                            {PUC_TOPPERS_2024.map((src, idx) => (
+                              <div key={idx} className="bg-white rounded-2xl p-2 shadow-sm border border-slate-100 card-shadow flex flex-col items-center hover:scale-105 transition-transform duration-300">
+                                <img
+                                  src={src}
+                                  alt={`PUC Topper ${idx + 1}`}
+                                  className="w-full h-auto rounded-xl object-contain"
+                                />
+                              </div>
+                            ))}
+                          </div>
+                        </div>
                       </div>
                     ) : (
                       <>
@@ -380,6 +401,27 @@ const AboutContent = () => {
                             </div>
                           ))}
                         </div>
+
+                        {school.toppers && (
+                          <div className="space-y-8 pt-12 mt-12 border-t border-slate-100/60">
+                            <h5 className="text-2xl font-bold text-primary text-center">{school.toppersTitle}</h5>
+                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                              {school.toppers.map((topper, idx) => (
+                                <div key={idx} className="bg-white rounded-3xl p-6 shadow-sm border border-slate-100 card-shadow flex flex-col items-center text-center space-y-4 hover:-translate-y-1 transition-transform duration-300">
+                                  <img
+                                    src={topper.image}
+                                    alt={topper.name}
+                                    className="w-32 h-32 rounded-2xl object-cover shadow-md border-2 border-white"
+                                  />
+                                  <div>
+                                    <h6 className="font-extrabold text-primary text-lg leading-tight">{topper.name}</h6>
+                                    <p className="text-amber-500 font-bold text-sm mt-1 uppercase tracking-wide">{topper.desc}</p>
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
                       </>
                     )}
                   </div>
